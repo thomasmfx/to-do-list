@@ -169,7 +169,7 @@ main > #min-view {
 
 /* Tasks card */
 
-.task {
+.task-card {
     margin: 1em 1em 0 1em;
 
     border: 2px solid;
@@ -183,12 +183,12 @@ main > #min-view {
     transition: .1s ease-in-out;
 }
 
-.task:hover {
+.task-card:hover {
     cursor: pointer;
     scale: 1.01;
 }
 
-.task > .priority {
+.task-card > .priority {
     height: 100%;
     width: 100%;
     grid-row: 1 / 2;
@@ -197,7 +197,7 @@ main > #min-view {
     border-bottom-left-radius: 1em;
 }
 
-.task > .wrapper {
+.task-card > .wrapper {
     grid-row: 1 / -1;
     grid-column: 2 / -1;
 
@@ -240,15 +240,15 @@ main > #min-view {
     font-size: 1rem;
 }
 
-button.actions {
+.date-and-actions > button {
     background-color: transparent;
     border: none;
-    padding: 1px 6px;
+    padding: 6px 6px;
     color: var(--dark-gray);
     border-radius: 3px;
 }
 
-.actions:hover {
+.date-and-actions > button:hover {
     cursor: pointer;
     background-color: var(--light-gray);
 }
@@ -261,13 +261,12 @@ button.actions {
 }
 
 #full-view > div#empty-view {
-    color: var(--light-gray);
+    color: var(--default-gray);
     align-self: center;
     margin-bottom: 5em;
     width: 100%;
     text-align: center;
 }
-
 
 .priority.high {
     background-color: var(--red);
