@@ -17,14 +17,27 @@ input, button, textarea, select { font: inherit; }
 /* ------------------------------- */
 
 :root {
-    --timberwolf: #d3d3d3ff;
-    --french-gray: #adb5bdff;
-    --dim-gray: #6d6a75ff;
-    --argentinian-blue: #64b5f6ff;
-    --dodger-blue: #2196f3ff;
+    /* Logo */
+    --logo-blue: #2196f3ff;
+    /* Tasks title */
+    --black: #495057;
 
-    --light-gray: #D3D3D3;
-    --border: 2px solid #D3D3D3;
+    /* All other text/icon in tasks cards */
+    --dark-gray: #6d6a75ff;
+
+    /* Border of tasks card */
+    --default-gray: #adb5bdff;
+    
+    /* Icons background on hover*/
+    --light-gray: #ebebeb;
+    
+    /* Borders */
+    --borders-gray: #D3D3D3;
+
+    /* Priorities */
+    --red: #ff5a5a;
+    --yellow: #f6c364;
+    --argentinian-blue: #64b5f6ff;
 }
 
 body {
@@ -41,7 +54,7 @@ main {
 header {
     grid-row: 1 / 2;
     grid-column: 1 / -1;
-    border: var(--border);
+    border: 2px solid var(--borders-gray);
 
     display: flex;
     align-items: center;
@@ -49,7 +62,7 @@ header {
 }
 
 aside {
-    border-right: var(--border);
+    border-right: 2px solid var(--borders-gray);
     grid-row: 2 / -1;
     grid-column: 1 / 2;
 }
@@ -63,6 +76,8 @@ nav {
     height: 100%;
 }
 
+/* Header */
+
 header > #logo {
     margin-left: 8px;
     display: flex;
@@ -70,7 +85,7 @@ header > #logo {
     justify-content: center;
 
     font-size: 2.8rem;
-    color: var(--light-gray);
+    color: var(--borders-gray);
 }
 
 header > #theme-login {
@@ -82,7 +97,7 @@ header > #theme-login {
 
 i#theme {
     font-size: 2rem;
-    color: var(--french-gray);
+    color: var(--default-gray);
     padding: 6px;
     border-radius: 6px;
 }
@@ -96,8 +111,10 @@ button#login {
     font-size: 2rem;
     border-radius: 10px;
     padding: 0 0.5em;
-    color: var(--french-gray);
+    color: var(--default-gray);
 }
+
+/* Aside/nav */
 
 nav > a {
     position: absolute;
@@ -111,7 +128,7 @@ nav > a > .fa-github {
 nav > i,
 i.fa-github {
     font-size: 1.5rem;
-    color: var(--french-gray);
+    color: var(--default-gray);
     padding: 6px;
     border-radius: 5px;
 }
@@ -120,39 +137,146 @@ nav > i:hover,
 i.fa-github:hover,
 #login:hover {
     cursor: pointer;
-    background-color: rgb(235, 235, 235);
+    background-color: var(--light-gray);
 }
 
 .fa-circle {
-    -webkit-text-stroke: 1px var(--french-gray);
+    -webkit-text-stroke: 1px var(--default-gray);
 }
 
 .red {
-    color: #ff5a5a;
+    color: var(--red);
 }
 
 .yellow {
-    color: rgb(246, 234, 100);
+    color: var(--yellow);
 }
 
 .blue {
     color: var(--argentinian-blue);
 }
 
+/* Min view */
+
 main > #min-view {
-    border-right: var(--border);
+    border-right: 2px solid var(--borders-gray);
     grid-row: 2 / -1;
     grid-column: 2 / 3;
+
+    display: flex;
+    flex-direction: column;
 }
+
+/* Tasks card */
+
+.task {
+    margin: 1em 1em 0 1em;
+
+    border: 2px solid;
+    border-radius: 15px;
+    border-color: transparent;
+
+    display: grid;
+    grid-template-columns: 0.6em 1fr;
+    grid-template-rows: 1fr;
+
+    transition: .1s ease-in-out;
+}
+
+.task:hover {
+    cursor: pointer;
+    scale: 1.01;
+}
+
+.task > .priority {
+    height: 100%;
+    width: 100%;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+.task > .wrapper {
+    grid-row: 1 / -1;
+    grid-column: 2 / -1;
+
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-right: 2px solid var(--default-gray);
+    border-top: 2px solid var(--default-gray);
+    border-bottom: 2px solid var(--default-gray);
+
+    display: grid;
+    grid-template-columns: 30px 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 0.5em;
+    align-items: center;
+}
+
+.check {
+    accent-color: var(--logo-blue);
+
+}
+
+.info > .title {
+    color: var(--black);
+    font-size: 1.2rem;
+}
+
+.info > .project {
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+}
+
+.date-and-actions {
+    justify-self: end;
+
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+    margin-right: 1em;
+    color: var(--dark-gray);
+    font-size: 1rem;
+}
+
+button.actions {
+    background-color: transparent;
+    border: none;
+    padding: 1px 6px;
+    color: var(--dark-gray);
+    border-radius: 3px;
+}
+
+.actions:hover {
+    cursor: pointer;
+    background-color: var(--light-gray);
+}
+
+/* Full view */
+
 
 #full-view {
     display: flex;
 }
 
 #full-view > div#empty-view {
-    color: var(--timberwolf);
+    color: var(--light-gray);
     align-self: center;
     margin-bottom: 5em;
     width: 100%;
     text-align: center;
+}
+
+
+.priority.high {
+    background-color: var(--red);
+}
+
+.priority.medium {
+    background-color: var(--yellow);
+}
+
+.priority.low {
+    background-color: var(--argentinian-blue);
 }

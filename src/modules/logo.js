@@ -15,7 +15,7 @@ export default function setImages(){
     let logoDiv = document.querySelector('#logo')
     let logo = create.imgWithSrc(headerLogo);
     let logoText = create.el('p', 'Due');
-    logoText.style.color = 'var(--french-gray)'
+    logoText.style.color = 'var(--default-gray)'
 
     logoDiv.appendChild(logo)
     logoDiv.appendChild(logoText);
