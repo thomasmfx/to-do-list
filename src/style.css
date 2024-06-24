@@ -40,6 +40,7 @@ header {
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 aside {
@@ -67,6 +68,32 @@ header > #logo {
     color: var(--light-gray);
 }
 
+header > #theme-login {
+    margin-right: 8px;
+    display: flex;
+    column-gap: 1em;
+    align-items: center;
+}
+
+i#theme {
+    font-size: 2rem;
+    color: var(--french-gray);
+    padding: 6px;
+    border-radius: 6px;
+}
+
+i#theme:hover {
+    cursor: pointer;
+}
+
+button#login {
+    all: unset;
+    font-size: 2rem;
+    border-radius: 10px;
+    padding: 0 0.5em;
+    color: var(--french-gray);
+}
+
 nav > a {
     position: absolute;
     bottom: 0.8em;
@@ -76,14 +103,17 @@ nav > a > .fa-github {
     font-size: 1.8rem;
 }
 
-i {
+nav > i,
+i.fa-github {
     font-size: 1.5rem;
     color: var(--french-gray);
     padding: 6px;
     border-radius: 5px;
 }
 
-i:hover {
+nav > i:hover,
+i.fa-github:hover,
+#login:hover {
     cursor: pointer;
     background-color: rgb(235, 235, 235);
 }
