@@ -21,8 +21,8 @@ input, button, textarea, select { font: inherit; }
     --dim-gray: #6d6a75ff;
     --argentinian-blue: #64b5f6ff;
     --dodger-blue: #2196f3ff;
-    
-    --gray: #D3D3D3;
+
+    --light-gray: #D3D3D3;
     --border: 2px solid #D3D3D3;
 }
 
@@ -48,18 +48,64 @@ aside {
     grid-column: 1 / 2;
 }
 
-#left {
-    border-right: var(--border);
-    grid-row: 2 / -1;
-    grid-column: 2 / 3;
+nav {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.5em;
+    height: 100%;
 }
 
-#logo {
-    margin-left: 5px;
+header > #logo {
+    margin-left: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     font-size: 2.5rem;
-    color: var(--gray);
+    color: var(--light-gray);
+}
+
+nav > a {
+    position: absolute;
+    bottom: 0.8em;
+}
+
+nav > a > .fa-github {
+    font-size: 1.8rem;
+}
+
+i {
+    font-size: 1.5rem;
+    color: var(--french-gray);
+    padding: 6px;
+    border-radius: 5px;
+}
+
+i:hover {
+    cursor: pointer;
+    background-color: rgb(235, 235, 235);
+}
+
+.fa-circle {
+    -webkit-text-stroke: 1px var(--french-gray);
+}
+
+.red {
+    color: #ff5a5a;
+}
+
+.yellow {
+    color: rgb(246, 234, 100);
+}
+
+.blue {
+    color: var(--argentinian-blue);
+}
+
+main > #left {
+    border-right: var(--border);
+    grid-row: 2 / -1;
+    grid-column: 2 / 3;
 }
