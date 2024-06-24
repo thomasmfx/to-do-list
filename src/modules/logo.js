@@ -1,6 +1,6 @@
-import favicon from '../assets/favicon.svg';
-import headerLogo from '../assets/logo.svg';
-import create from './domCreate.js';
+import favicon from '../../assets/favicon.svg';
+import headerLogo from '../../assets/logo.svg';
+import create from './domCreator.js';
 
 export default function setImages(){
     // Favicon
