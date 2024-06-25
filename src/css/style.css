@@ -55,6 +55,7 @@ header {
     grid-row: 1 / 2;
     grid-column: 1 / -1;
     border: 2px solid var(--borders-gray);
+    border-top: none;
 
     display: flex;
     align-items: center;
@@ -178,14 +179,25 @@ main > #min-view {
     grid-row: 2 / -1;
     grid-column: 2 / 3;
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 60px);
+    row-gap: 1.2em;
+    padding-top: 1.2em;
+}
+
+#current-tab {
+    font-size: 3rem;
+    color: var(--default-gray);
+    justify-self: end;
+    position: fixed;
+    bottom: 0;
+    margin-right: 16px;
 }
 
 /* Tasks card */
 
 .task-card {
-    padding: 1em 1em 0 1em;
+    padding: 0 1em;
 
     border: 2px solid;
     border-radius: 15px;
@@ -302,7 +314,7 @@ main > #min-view {
 }
 
 .project-card {
-    padding: 1em 1em 0 1em;
+    padding: 0 1em;
 
     border: 2px solid;
     border-radius: 15px;
@@ -322,7 +334,6 @@ main > #min-view {
 
 .project-wrapper {
     width: 100%;
-    height: 51.98px;
 
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;

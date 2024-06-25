@@ -37,14 +37,29 @@ const homeTab = document.querySelector('#home');
 homeTab.addEventListener('click', () => {
     clearCards();
     displayTaskCards();
+    changeCurrTabLabel('Home');
 });
 
 const projectsTab = document.querySelector('#projects');
 projectsTab.addEventListener('click', () => {
     clearCards();
     displayProjectsCards();
+    changeCurrTabLabel('Projects');
 });
 
-window.onload = displayTaskCards();
+function changeCurrTabLabel(newTab) {
+    const currentTab = document.querySelector('#current-tab');
+    currentTab.textContent = newTab;
+};
 
-export { tasksArr, projectsArr, displayTaskCards, displayProjectsCards, setDatasetIndex, clearCards };
+
+window.onload = displayTaskCards();
+export { 
+    tasksArr, 
+    projectsArr, 
+    displayTaskCards, 
+    displayProjectsCards, 
+    setDatasetIndex, 
+    clearCards,
+    changeCurrTabLabel 
+};

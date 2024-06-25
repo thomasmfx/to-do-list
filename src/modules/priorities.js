@@ -1,5 +1,5 @@
 import { newTaskCard, displayTaskCards } from './taskControls';
-import { clearCards } from '../index.js';
+import { clearCards, changeCurrTabLabel } from '../index.js';
 
 const priority = (function() {
     let filtered = false;
@@ -24,10 +24,7 @@ const priority = (function() {
 
 function filterPriority(task) {
     let prior = task.priority;
-    priority[`${prior}`].push(task)
-    console.log(priority.low);
-    console.log(priority.medium);
-    console.log(priority.high);
+    priority[`${prior}`].push(task);
 };
 
 const lowPriorBtn = document.querySelector('#low');
@@ -36,10 +33,12 @@ lowPriorBtn.addEventListener('click', () => {
         priority.filtered = 'low';
         clearCards();
         priority.displayByPrior('low');
+        changeCurrTabLabel('Low Priority')
     } else {
         priority.filtered = null;
         clearCards();
         displayTaskCards();
+        changeCurrTabLabel('Home')
     };
 });
 
@@ -49,10 +48,12 @@ midPriorBtn.addEventListener('click', () => {
         priority.filtered = 'medium';
         clearCards();
         priority.displayByPrior('medium');
+        changeCurrTabLabel('Medium Priority')
     } else {
         priority.filtered = null;
         clearCards();
         displayTaskCards();
+        changeCurrTabLabel('Home')
     };
 });
 
@@ -62,10 +63,12 @@ highPriorBtn.addEventListener('click', () => {
         priority.filtered = 'high';
         clearCards();
         priority.displayByPrior('high');
+        changeCurrTabLabel('High Priority')
     } else {
         priority.filtered = null;
         clearCards();
         displayTaskCards();
+        changeCurrTabLabel('Home Priority')
     };
 });
 
