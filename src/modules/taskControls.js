@@ -1,5 +1,5 @@
 import create from './domCreator.js';
-import { tasks, displayCards } from '../index.js';
+import { tasksArr, displayCards } from '../index.js';
 
 class Task {
     constructor(title, project, dueDate, priority, description) {
@@ -16,7 +16,7 @@ function newTaskCard(task) {
     const minView = document.querySelector('#min-view');
     // Card
     // | Priority
-    // | Wrapper
+    // | Wrapper 
     // | | Checkbox
     // | | Info
     // | | | Title
@@ -43,9 +43,10 @@ function newTaskCard(task) {
     const dueDate = create.elWithClass('p', 'dueDate', task.dueDate);
     const editBtn = create.el('button');
     const removeBtn = create.el('button');
+
     editBtn.classList.add('fa-regular', 'fa-pen-to-square', 'edit');
     removeBtn.classList.add('fa-regular', 'fa-square-minus', 'remove');
-
+    removeBtn.addEventListener('click', () => { removeTask(removeBtn); });
     checkbox.onclick = function() {
         if(checkbox.checked) {
             checkbox.parentElement.parentElement.style.opacity = '40%';
@@ -53,20 +54,6 @@ function newTaskCard(task) {
             checkbox.parentElement.parentElement.style.opacity = '100%';
         };
     };
-
-    removeBtn.addEventListener('click', () => {
-        const btnCard = removeBtn.parentElement.parentElement.parentElement;
-        tasks.splice(btnCard.dataset.index, 1);
-        btnCard.remove();
-
-        const allCards = document.querySelectorAll('.task-card');
-        allCards.forEach(card => {
-            card.remove();
-        });
-
-        displayCards();
-        console.table(tasks);
-    });
     
     dateAndActions.append(dueDate, editBtn, removeBtn);
     info.append(title, taskProject);
@@ -74,6 +61,20 @@ function newTaskCard(task) {
     card.append(priority, wrapper);
     
     minView.appendChild(card);
+};
+
+function removeTask(btn) {
+    const btnCard = btn.parentElement.parentElement.parentElement;
+    tasksArr.splice(btnCard.dataset.index, 1);
+    btnCard.remove();
+
+    const allCards = document.querySelectorAll('.task-card');
+    allCards.forEach(card => {
+        card.remove();
+    });
+
+    displayCards();
+    console.table(tasksArr);
 };
 
 
