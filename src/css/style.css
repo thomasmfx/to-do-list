@@ -117,6 +117,27 @@ button#login {
 
 /* Aside/nav */
 
+nav > button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--default-gray);
+    border-radius: 5px;
+    padding: 3px 8px 2px 8px;
+}
+
+#new-task {
+    font-size: 1.5rem;
+    padding: 1px 8px 0 8px;
+}
+
+nav > button:hover,
+i.fa-github:hover,
+#login:hover {
+    cursor: pointer;
+    background-color: var(--light-gray);
+}
+
 nav > a {
     position: absolute;
     bottom: 0.8em;
@@ -125,16 +146,6 @@ nav > a {
 nav > a > .fa-github {
     font-size: 1.8rem;
 }
-
-nav > button {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--default-gray);
-    border-radius: 5px;
-    padding: 3px 8px 2px 8px ;
-}
-
 i.fa-github {
     background: none;
     border: none;
@@ -142,13 +153,6 @@ i.fa-github {
     color: var(--default-gray);
     border-radius: 5px;
     padding: 8px;
-}
-
-nav > button:hover,
-i.fa-github:hover,
-#login:hover {
-    cursor: pointer;
-    background-color: var(--light-gray);
 }
 
 .fa-circle {
