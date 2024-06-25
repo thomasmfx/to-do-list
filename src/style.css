@@ -63,6 +63,7 @@ header {
 
 aside {
     border-right: 2px solid var(--borders-gray);
+    border-left: 2px solid var(--borders-gray);
     grid-row: 2 / -1;
     grid-column: 1 / 2;
 }
@@ -170,7 +171,7 @@ main > #min-view {
 /* Tasks card */
 
 .task-card {
-    margin: 1em 1em 0 1em;
+    padding: 1em 1em 0 1em;
 
     border: 2px solid;
     border-radius: 15px;
@@ -214,9 +215,14 @@ main > #min-view {
     align-items: center;
 }
 
-.check {
+.checkbox {
+    margin-left: 0.4em;
     accent-color: var(--logo-blue);
+    transform: scale(1.4);
+}
 
+.checkbox:hover {
+    cursor: pointer;
 }
 
 .info > .title {
@@ -258,6 +264,7 @@ main > #min-view {
 
 #full-view {
     display: flex;
+    border-right: 2px solid var(--borders-gray);
 }
 
 #full-view > div#empty-view {
