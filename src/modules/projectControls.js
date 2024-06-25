@@ -1,5 +1,5 @@
 import create from './domCreator.js';
-import { projectsArr, setDatasetIndex } from '../index.js';
+import { projectsArr, setDatasetIndex, clearCards } from '../index.js';
 
 class Project {
     constructor(title, link, description) {
@@ -60,13 +60,6 @@ function removeProject(btn) {
     projCard.remove();
 };
 
-function clearCards() {
-    const allCards = document.querySelectorAll('.card');
-    allCards.forEach(card => {
-        card.remove();
-    });
-};
-
 function pushProject(project) {
     projectsArr.push(project);
 };
@@ -75,7 +68,7 @@ function displayProjectsCards() {
     for(const proj of projectsArr) {
         newProjectCard(proj);
     };
-    setDatasetIndex('project');
+    setDatasetIndex();
 };
 
-export { Project, newProjectCard, pushProject, displayProjectsCards };
+export { Project, pushProject, displayProjectsCards };

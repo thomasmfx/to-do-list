@@ -1,5 +1,5 @@
 import create from './domCreator.js';
-import { tasksArr, setDatasetIndex } from '../index.js';
+import { tasksArr, setDatasetIndex, clearCards } from '../index.js';
 
 class Task {
     constructor(title, project, dueDate, priority, description) {
@@ -75,13 +75,6 @@ function removeTask(btn) {
     btnCard.remove();
 };
 
-function clearCards() {
-    const allCards = document.querySelectorAll('.card');
-    allCards.forEach(card => {
-        card.remove();
-    });
-};
-
 function pushTask(task) {
     tasksArr.push(task);
 };
@@ -90,7 +83,7 @@ function displayTaskCards() {
     for(const task of tasksArr) {
         newTaskCard(task);
     };
-    setDatasetIndex('tasks');
+    setDatasetIndex();
 };
 
-export { Task, newTaskCard, pushTask, displayTaskCards };
+export { Task, pushTask, displayTaskCards };
