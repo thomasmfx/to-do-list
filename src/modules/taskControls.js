@@ -1,5 +1,5 @@
 import create from './domCreator.js';
-import { tasksArr, displayCards } from '../index.js';
+import { tasksArr, setDatasetIndex } from '../index.js';
 
 class Task {
     constructor(title, project, dueDate, priority, description) {
@@ -15,20 +15,21 @@ class Task {
 function newTaskCard(task) {
     const minView = document.querySelector('#min-view');
     // Card
-    // | Priority
-    // | Wrapper 
-    // | | Checkbox
-    // | | Info
-    // | | | Title
-    // | | | Project
-    // | | Date and Actions
-    // | | | Due date
-    // | | | Edit task btn
-    // | | | Remove task button
+    // ^ Priority
+    // ^ Wrapper 
+    //   ^ Checkbox
+    //   ^ Info
+    //     ^ Title
+    //     ^ Project
+    //   ^ Date and Actions
+    //     ^ Due date
+    //     ^ Edit task btn
+    //     ^ Remove task button
     const card = create.elWithClass('div', 'task-card');
+    card.classList.add('card');
 
     const priority = create.elWithClass('div', 'priority');
-    priority.classList.add(`${task.priority}`)
+    priority.classList.add(`${task.priority}`);
     const wrapper = create.elWithClass('div', 'wrapper');
 
     const checkbox = create.elWithClass('input', 'checkbox');
@@ -46,7 +47,12 @@ function newTaskCard(task) {
 
     editBtn.classList.add('fa-regular', 'fa-pen-to-square', 'edit');
     removeBtn.classList.add('fa-regular', 'fa-square-minus', 'remove');
-    removeBtn.addEventListener('click', () => { removeTask(removeBtn); });
+    removeBtn.addEventListener('click', () => { 
+        removeTask(removeBtn); 
+        clearCards();
+        displayTaskCards();
+        console.table(tasksArr);
+    });
     checkbox.onclick = function() {
         if(checkbox.checked) {
             checkbox.parentElement.parentElement.style.opacity = '40%';
@@ -67,15 +73,24 @@ function removeTask(btn) {
     const btnCard = btn.parentElement.parentElement.parentElement;
     tasksArr.splice(btnCard.dataset.index, 1);
     btnCard.remove();
+};
 
-    const allCards = document.querySelectorAll('.task-card');
+function clearCards() {
+    const allCards = document.querySelectorAll('.card');
     allCards.forEach(card => {
         card.remove();
     });
-
-    displayCards();
-    console.table(tasksArr);
 };
 
+function pushTask(task) {
+    tasksArr.push(task);
+};
 
-export { Task, newTaskCard }
+function displayTaskCards() {
+    for(const task of tasksArr) {
+        newTaskCard(task);
+    };
+    setDatasetIndex('tasks');
+};
+
+export { Task, newTaskCard, pushTask, displayTaskCards };
