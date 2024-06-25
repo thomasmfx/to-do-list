@@ -1,15 +1,15 @@
 import create from './domCreator.js';
+import { tasks, displayCards } from '../index.js';
 
 class Task {
     constructor(title, project, dueDate, priority, description) {
         this.title = title,
         this.project = project,
         this.dueDate = dueDate,
-        this.priority = priority,
+        this.priority = priority.toLowerCase(),
         this.description = description,
         this.done = false
     };
-
 };
 
 function newTaskCard(task) {
@@ -31,7 +31,7 @@ function newTaskCard(task) {
     priority.classList.add(`${task.priority}`)
     const wrapper = create.elWithClass('div', 'wrapper');
 
-    const checkbox = create.elWithClass('input', 'check');
+    const checkbox = create.elWithClass('input', 'checkbox');
     checkbox.type = 'checkbox';
     const info = create.elWithClass('div', 'info');
 
@@ -46,12 +46,35 @@ function newTaskCard(task) {
     editBtn.classList.add('fa-regular', 'fa-pen-to-square', 'edit');
     removeBtn.classList.add('fa-regular', 'fa-square-minus', 'remove');
 
+    checkbox.onclick = function() {
+        if(checkbox.checked) {
+            checkbox.parentElement.parentElement.style.opacity = '40%';
+        } else {
+            checkbox.parentElement.parentElement.style.opacity = '100%';
+        };
+    };
+
+    removeBtn.addEventListener('click', () => {
+        const btnCard = removeBtn.parentElement.parentElement.parentElement;
+        tasks.splice(btnCard.dataset.index, 1);
+        btnCard.remove();
+
+        const allCards = document.querySelectorAll('.task-card');
+        allCards.forEach(card => {
+            card.remove();
+        });
+
+        displayCards();
+        console.table(tasks);
+    });
+    
     dateAndActions.append(dueDate, editBtn, removeBtn);
     info.append(title, taskProject);
     wrapper.append(checkbox, info, dateAndActions);
     card.append(priority, wrapper);
-
-    minView.appendChild(card)
+    
+    minView.appendChild(card);
 };
+
 
 export { Task, newTaskCard }

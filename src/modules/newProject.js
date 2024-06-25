@@ -5,7 +5,6 @@ class Project {
         this.description = description,
         this.tasks = []
     };
-
 };
 
 export default Project;
