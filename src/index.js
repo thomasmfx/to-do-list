@@ -1,4 +1,4 @@
-import './style.css';
+import './css/style.css';
 import setImages from './modules/logo.js';
 import { Task, newTaskCard } from './modules/newTask.js';
 import Project from './modules/newProject.js';

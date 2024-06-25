@@ -110,7 +110,7 @@ i#theme:hover {
 button#login {
     all: unset;
     font-size: 2rem;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0 0.5em;
     color: var(--default-gray);
 }
@@ -126,15 +126,25 @@ nav > a > .fa-github {
     font-size: 1.8rem;
 }
 
-nav > i,
-i.fa-github {
+nav > button {
+    background: none;
+    border: none;
     font-size: 1.5rem;
     color: var(--default-gray);
-    padding: 6px;
     border-radius: 5px;
+    padding: 3px 8px 2px 8px ;
 }
 
-nav > i:hover,
+i.fa-github {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--default-gray);
+    border-radius: 5px;
+    padding: 8px;
+}
+
+nav > button:hover,
 i.fa-github:hover,
 #login:hover {
     cursor: pointer;
@@ -249,9 +259,9 @@ main > #min-view {
 .date-and-actions > button {
     background-color: transparent;
     border: none;
-    padding: 6px 6px;
+    padding: 6px 7px;
     color: var(--dark-gray);
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 .date-and-actions > button:hover {
