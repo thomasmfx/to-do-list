@@ -296,3 +296,90 @@ main > #min-view {
 .priority.low {
     background-color: var(--argentinian-blue);
 }
+
+.project-card {
+    padding: 1em 1em 0 1em;
+
+    border: 2px solid;
+    border-radius: 15px;
+    border-color: transparent;
+
+    display: grid;
+    grid-template-columns: 0.6em 1fr;
+    grid-template-rows: 1fr;
+
+    transition: .1s ease-in-out;
+}
+
+.project-card:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+.project-wrapper {
+    width: 100%;
+    height: 51.98px;
+
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-right: 2px solid var(--default-gray);
+    border-top: 2px solid var(--default-gray);
+    border-bottom: 2px solid var(--default-gray);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 0.5em;
+    align-items: center;
+}
+
+.project-wrapper > .info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.8em;
+}
+
+.project-wrapper > .info > .title {
+    font-size: 1.2rem;
+    color: var(--black);
+}
+
+.project-wrapper > .info > .link {
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+    text-decoration: none;
+}
+
+.info > .link:hover {
+    text-decoration: underline black;
+}
+
+.project-wrapper > .actions {
+    display: flex;
+    column-gap: 1em;
+    justify-self: end;
+    margin-right: 1em;
+}
+
+.actions > button {
+    border: none;
+    background: none;
+    color: var(--dark-gray);
+    padding: 6px 7px;
+    border-radius: 4px;
+}
+
+.actions > button:hover {
+    cursor: pointer;
+    background-color: var(--light-gray);
+}
+
+.project-stripe {
+    height: 100%;
+    width: 100%;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    background-color: var(--default-gray);
+}
