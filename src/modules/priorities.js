@@ -1,5 +1,6 @@
 import { newTaskCard, displayTaskCards } from './taskControls';
-import { clearCards, changeCurrTabLabel } from '../index.js';
+import { clearCards } from '../index.js';
+import { changeTabLabelTo } from './tabs.js';
 
 const priority = (function() {
     let filtered = false;
@@ -28,49 +29,29 @@ function filterPriority(task) {
 };
 
 const lowPriorBtn = document.querySelector('#low');
-lowPriorBtn.addEventListener('click', () => {
-    if(priority.filtered !== 'low'){
-        priority.filtered = 'low';
-        clearCards();
-        priority.displayByPrior('low');
-        changeCurrTabLabel('Low Priority')
-    } else {
-        priority.filtered = null;
-        clearCards();
-        displayTaskCards();
-        changeCurrTabLabel('Home')
-    };
-});
-
 const midPriorBtn = document.querySelector('#medium');
-midPriorBtn.addEventListener('click', () => {
-    if(priority.filtered !== 'medium'){
-        priority.filtered = 'medium';
-        clearCards();
-        priority.displayByPrior('medium');
-        changeCurrTabLabel('Medium Priority')
-    } else {
-        priority.filtered = null;
-        clearCards();
-        displayTaskCards();
-        changeCurrTabLabel('Home')
-    };
-});
-
 const highPriorBtn = document.querySelector('#high');
-highPriorBtn.addEventListener('click', () => {
-    if(priority.filtered !== 'high'){
-        priority.filtered = 'high';
+
+lowPriorBtn.addEventListener('click', () => labelFilteredPrior(lowPriorBtn))
+midPriorBtn.addEventListener('click', () => labelFilteredPrior(midPriorBtn))
+highPriorBtn.addEventListener('click', () => labelFilteredPrior(highPriorBtn))
+
+
+function labelFilteredPrior(btn) {
+    let formated = btn.id.charAt(0).toUpperCase() + btn.id.slice(1);
+
+    if(priority.filtered !== btn.id){
+        priority.filtered = btn.id;
         clearCards();
-        priority.displayByPrior('high');
-        changeCurrTabLabel('High Priority')
+        priority.displayByPrior(btn.id);
+        changeTabLabelTo(`${formated} priority`);
     } else {
         priority.filtered = null;
         clearCards();
         displayTaskCards();
-        changeCurrTabLabel('Home Priority')
+        changeTabLabelTo('Home');
     };
-});
+};
 
-export { priority, filterPriority} ;
+export { priority, filterPriority } ;
 
