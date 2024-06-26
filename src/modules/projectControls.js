@@ -42,8 +42,8 @@ function newProjectCard(project) {
     removeBtn.addEventListener('click', () => { 
         removeProject(removeBtn); 
         clearCards();
-        displayProjectsCards();
-        console.table(projectsArr);
+        displayProjects();
+        // console.table(projectsArr);
     });
 
     btnsDiv.append(editBtn, removeBtn);
@@ -64,11 +64,11 @@ function pushProject(project) {
     projectsArr.push(project);
 };
 
-function displayProjectsCards() {
+function displayProjects() {
     for(const proj of projectsArr) {
         newProjectCard(proj);
     };
     setDatasetIndex();
 };
 
-export { Project, pushProject, displayProjectsCards };
+export { Project, pushProject, displayProjects };

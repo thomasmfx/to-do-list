@@ -52,19 +52,19 @@ function newTaskCard(task) {
     removeBtn.addEventListener('click', () => { 
         removeTask(removeBtn); 
         clearCards();
-        displayTaskCards();
-        console.table(tasksArr);
+        displayTasks();
+        // console.table(tasksArr);
     });
     checkbox.onclick = function() {
         const parentCard = checkbox.parentElement.parentElement;
         if(checkbox.checked) {
             parentCard.style.opacity = '40%';
             tasksArr[parentCard.dataset.index].done = true;
-            console.log(tasksArr[parentCard.dataset.index].done);
+            // console.log(tasksArr[parentCard.dataset.index].done);
         } else {
             parentCard.style.opacity = '';
             tasksArr[parentCard.dataset.index].done = false;
-            console.log(tasksArr[parentCard.dataset.index].done);
+            // console.log(tasksArr[parentCard.dataset.index].done);
         };
     };
     
@@ -87,11 +87,11 @@ function pushTask(task) {
     filterPriority(task);
 };
 
-function displayTaskCards() {
+function displayTasks() {
     for(const task of tasksArr) {
         newTaskCard(task);
     };
     setDatasetIndex();
 };
 
-export { Task, pushTask, newTaskCard, displayTaskCards };
+export { Task, pushTask, newTaskCard, displayTasks };

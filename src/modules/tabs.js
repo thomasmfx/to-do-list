@@ -1,23 +1,23 @@
 import { clearCards } from "..";
-import { displayProjectsCards } from "./projectControls";
-import { displayTaskCards } from "./taskControls";
+import { displayProjects } from "./projectControls";
+import { displayTasks } from "./taskControls";
 
 export function loadHome() {
     const homeTab = document.querySelector('#home');
     homeTab.addEventListener('click', () => {
         clearCards();
-        displayTaskCards();
+        displayTasks();
         changeTabLabelTo('Home');
     });
 
-    displayTaskCards()
+    displayTasks()
 };
 
 export function loadProjects() {
     const projectsTab = document.querySelector('#projects');
     projectsTab.addEventListener('click', () => {
         clearCards();
-        displayProjectsCards();
+        displayProjects();
         changeTabLabelTo('Projects');
     });
 };
