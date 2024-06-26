@@ -4,6 +4,7 @@ import { Task, pushTask } from './modules/taskControls.js';
 import { Project, pushProject } from './modules/projectControls.js';
 import loadModals from './modules/modals.js';
 import { loadHome, loadProjects } from './modules/tabs.js';
+import loadFilter from './modules/prioritiesFilter.js';
 
 let tasksArr = [];
 let projectsArr = []; 
@@ -26,6 +27,23 @@ function clearCards() {
     });
 };
 
+// const hide = (function(){
+
+//     function hideCards(){
+//         const cards = document.querySelectorAll('.task-card');
+//         cards.forEach(card => {
+//             card.classList.add('hide');
+//         });
+//     };
+
+//     function hideProjects(){
+//         const projs = document.querySelectorAll('.project-card');
+//         projs.forEach(proj => {
+//             proj.classList.add('hide');
+//         });
+//     };
+// })();
+
 function setDatasetIndex() {
     let index = 0;
     const cards = document.querySelectorAll('.card');
@@ -35,7 +53,7 @@ function setDatasetIndex() {
     });
 };
 
-window.onload = loadHome(), loadProjects(), loadModals();
+window.onload = loadHome(), loadProjects(), loadModals(), loadFilter();
 
 export { 
     tasksArr, 

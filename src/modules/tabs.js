@@ -1,16 +1,16 @@
-import { clearCards } from "..";
+import { clearCards } from "../index.js";
 import { displayProjects } from "./projectControls";
 import { displayTasks } from "./taskControls";
 
 export function loadHome() {
+    displayTasks();
+
     const homeTab = document.querySelector('#home');
     homeTab.addEventListener('click', () => {
         clearCards();
         displayTasks();
         changeTabLabelTo('Home');
     });
-
-    displayTasks()
 };
 
 export function loadProjects() {

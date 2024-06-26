@@ -508,7 +508,12 @@ button[type="submit"]:hover {
     filter: brightness(90%);
 }
 
+/* Idk why but visiblity hidden did not work on forms */
 #task-form,
 #project-form {
+    display: none;
+}
+
+.hide {
     display: none;
 }
