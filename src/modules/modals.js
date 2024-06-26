@@ -15,14 +15,16 @@ function modals(){
     createTaskBtn.addEventListener('click', () => {
         optionsModal.style.visibility = 'hidden';
         formsModal.style.visibility = 'visible';
-        taskForm.style.visibility = 'visible';
+        taskForm.reset();
+        taskForm.style.display = 'block';
         closeModalBheavior(formsModal);
     });
     
     createProjBtn.addEventListener('click', () => {
         optionsModal.style.visibility = 'hidden';
         formsModal.style.visibility = 'visible';
-        projForm.style.visibility = 'visible';
+        projForm.reset();
+        projForm.style.display = 'block';
         closeModalBheavior(formsModal);
     });
 };
@@ -31,8 +33,8 @@ function closeModalBheavior(modal) {
     window.onclick = function(event) {
         if (event.target === modal) {
             modal.style.visibility = 'hidden';
-            taskForm.style.visibility = 'hidden';
-            projForm.style.visibility = 'hidden';
+            taskForm.style.display = 'none';
+            projForm.style.display = 'none';
         };
     };
 };

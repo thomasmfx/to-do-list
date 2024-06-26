@@ -35,6 +35,7 @@ function newTaskCard(task) {
 
     const checkbox = create.elWithClass('input', 'checkbox');
     checkbox.type = 'checkbox';
+    checkbox.name = 'checkbox';
     const info = create.elWithClass('div', 'info');
 
     const title = create.elWithClass('p', 'title', task.title);

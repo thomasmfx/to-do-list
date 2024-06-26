@@ -423,8 +423,8 @@ main > #min-view {
     row-gap: 2em;
 }
 
-button#create-task,
-button#create-project {
+#create-task,
+#create-project {
     font-size: 2rem;
     border: none;
     border-radius: 5px;
@@ -432,8 +432,8 @@ button#create-project {
     height: 145px;
 }
 
-button#create-task:hover,
-button#create-project:hover {
+#create-task:hover,
+#create-project:hover {
     cursor: pointer;
     background-color: var(--logo-blue);
     color: #FFFFFF;
@@ -471,9 +471,9 @@ form > h1 {
 
 form > div {
     padding: 0.5em 1em;
-    color: var(--black);
     display: flex;
     flex-direction: column;
+    color: var(--black);
 }
 
 form > div > input,
@@ -481,8 +481,18 @@ form > div > select,
 textarea {
     resize: none;
     border: 2px solid var(--borders-gray);
-    color: var(--default-gray);
+    color: var(--dark-gray);
     border-radius: 5px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--default-gray);
+}
+
+select,
+input[type="date"] {
+    color: var(--dark-gray);
 }
 
 form > div > button {
@@ -493,11 +503,6 @@ form > div > button {
     padding: 0.3em;
 }
 
-input::placeholder,
-textarea::placeholder {
-    color: var(--default-gray);
-}
-
 button[type="submit"]:hover {
     cursor: pointer;
     filter: brightness(90%);
@@ -505,5 +510,5 @@ button[type="submit"]:hover {
 
 #task-form,
 #project-form {
-    visibility: hidden;
+    display: none;
 }
