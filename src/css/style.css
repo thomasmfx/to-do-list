@@ -190,8 +190,8 @@ main > #min-view {
     font-size: 3rem;
     color: var(--default-gray);
     justify-self: end;
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    bottom: 0.1em;
     margin-right: 16px;
 }
 
@@ -501,4 +501,9 @@ textarea::placeholder {
 button[type="submit"]:hover {
     cursor: pointer;
     filter: brightness(90%);
+}
+
+#task-form,
+#project-form {
+    visibility: hidden;
 }
