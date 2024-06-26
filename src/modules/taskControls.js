@@ -80,11 +80,12 @@ function removeTask(btn) {
     const btnCard = btn.parentElement.parentElement.parentElement;
     tasksArr.splice(btnCard.dataset.index, 1);
     btnCard.remove();
+    filterPriority();
 };
 
 function pushTask(task) {
     tasksArr.push(task);
-    filterPriority(task);
+    filterPriority();
 };
 
 function displayTasks() {
