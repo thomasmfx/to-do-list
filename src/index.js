@@ -2,6 +2,8 @@ import './css/style.css';
 import setImages from './modules/logo.js';
 import { Task, pushTask, displayTaskCards } from './modules/taskControls.js';
 import { Project, pushProject, displayProjectsCards } from './modules/projectControls.js';
+import loadModals from './modules/modals.js';
+import { loadHome, loadProjects } from './modules/tabs.js';
 
 let tasksArr = [];
 let projectsArr = []; 
@@ -33,33 +35,13 @@ function setDatasetIndex() {
     });
 };
 
-const homeTab = document.querySelector('#home');
-homeTab.addEventListener('click', () => {
-    clearCards();
-    displayTaskCards();
-    changeCurrTabLabel('Home');
-});
+window.onload = loadHome(), loadProjects(), loadModals();
 
-const projectsTab = document.querySelector('#projects');
-projectsTab.addEventListener('click', () => {
-    clearCards();
-    displayProjectsCards();
-    changeCurrTabLabel('Projects');
-});
-
-function changeCurrTabLabel(newTab) {
-    const currentTab = document.querySelector('#current-tab');
-    currentTab.textContent = newTab;
-};
-
-
-window.onload = displayTaskCards();
 export { 
     tasksArr, 
     projectsArr, 
     displayTaskCards, 
     displayProjectsCards, 
     setDatasetIndex, 
-    clearCards,
-    changeCurrTabLabel 
+    clearCards
 };
