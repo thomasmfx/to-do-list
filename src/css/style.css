@@ -42,6 +42,7 @@ input, button, textarea, select { font: inherit; }
 
 body {
     font-family: 'Cascadia Code';
+    background: white;
 }
 
 main {
@@ -127,7 +128,7 @@ nav > button {
     padding: 3px 8px 2px 8px;
 }
 
-#new-task {
+#create {
     font-size: 1.5rem;
     padding: 1px 8px 0 8px;
 }
@@ -399,19 +400,68 @@ main > #min-view {
     background-color: var(--default-gray);
 }
 
-form {
-    position: absolute;
-    z-index: 3;
-    place-self: center;
+#modal-options {
+    visibility: hidden;
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100vw; 
+    height: 100dvh; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 
-    border-radius: 10px;
-    border: 2px solid var(--borders-gray);
-    background-color: white;
+    display: grid;
+    place-content: center;
+}
 
+#create-options {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    row-gap: 2em;
+}
 
-    transition: .2s ease-in-out;
+button#create-task,
+button#create-project {
+    font-size: 2rem;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    height: 145px;
+}
+
+button#create-task:hover,
+button#create-project:hover {
+    cursor: pointer;
+    background-color: var(--logo-blue);
+    color: #FFFFFF;
+}
+
+#modal-forms {
+    visibility: hidden;
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100vw; 
+    height: 100dvh; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+
+    display: grid;
+    place-content: center;
+}
+
+
+form {
+    background-color: #FFFFFF;
+    margin: auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
 }
 
 form > h1 {
@@ -431,7 +481,7 @@ form > div > select,
 textarea {
     resize: none;
     border: 2px solid var(--borders-gray);
-    color: var(--dark-gray);
+    color: var(--default-gray);
     border-radius: 5px;
 }
 
@@ -443,8 +493,9 @@ form > div > button {
     padding: 0.3em;
 }
 
-input::placeholder {
-    color: var(--dark-gray);
+input::placeholder,
+textarea::placeholder {
+    color: var(--default-gray);
 }
 
 button[type="submit"]:hover {

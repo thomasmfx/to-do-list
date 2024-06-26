@@ -34,7 +34,7 @@
                 <button id="low" title="Low priority">
                     <i class="fa-solid fa-circle blue"></i>
                 </button>
-                <button id="new-task">
+                <button id="create">
                     <i class="fa-solid fa-plus"></i>
                 </button>
                 <a href="https://github.com/thomasmfx/to-do-list"><i class="fa-brands fa-github"></i></a>
@@ -42,11 +42,23 @@
         </aside>
         <div id="min-view">
             <div id="current-tab">Home</div>
-            <form action="">
+            
+        </div>  
+        <div id="full-view">
+            <div id="empty-view">Open a task to see its full view</div>
+        </div>
+        <div id="modal-options">
+            <div id="create-options">
+                <button id="create-task">Task</button>
+                <button id="create-project">Project</button>
+            </div>
+        </div>
+        <div id="modal-forms">
+            <form action="" id="task-form">
                 <h1>New task</h1>
                 <div>
                     <label for="task-title">Title*</label>
-                    <input type="text" name="title" id="task-title" placeholder="Walk the dog">
+                    <input type="text" name="title" id="task-title" placeholder="Walk the dog" autofocus>
                 </div>
                 <div>
                     <label for="projects">Project</label>
@@ -76,9 +88,6 @@
                     <button type="submit" id="add-task">Add task</button>
                 </div>
             </form>
-        </div>  
-        <div id="full-view">
-            <div id="empty-view">Open a task to see its full view</div>
         </div>
     </main>
 </body>
