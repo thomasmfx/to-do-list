@@ -398,3 +398,56 @@ main > #min-view {
     border-bottom-left-radius: 1em;
     background-color: var(--default-gray);
 }
+
+form {
+    position: absolute;
+    z-index: 3;
+    place-self: center;
+
+    border-radius: 10px;
+    border: 2px solid var(--borders-gray);
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: .2s ease-in-out;
+}
+
+form > h1 {
+    text-align: center;
+    color: var(--dark-gray);
+}
+
+form > div {
+    padding: 0.5em 1em;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+}
+
+form > div > input,
+form > div > select,
+textarea {
+    resize: none;
+    border: 2px solid var(--borders-gray);
+    color: var(--dark-gray);
+    border-radius: 5px;
+}
+
+form > div > button {
+    border: none;
+    background-color: var(--logo-blue);
+    border-radius: 5px;
+    color: white;
+    padding: 0.3em;
+}
+
+input::placeholder {
+    color: var(--dark-gray);
+}
+
+button[type="submit"]:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}

@@ -42,6 +42,40 @@
         </aside>
         <div id="min-view">
             <div id="current-tab">Home</div>
+            <form action="">
+                <h1>New task</h1>
+                <div>
+                    <label for="task-title">Title*</label>
+                    <input type="text" name="title" id="task-title" placeholder="Walk the dog">
+                </div>
+                <div>
+                    <label for="projects">Project</label>
+                    <select name="projects" id="projects">
+                        <option value="Teste">Teste</option>
+                        <option value="Teste">teste</option>
+                        <option value="Teste">teste</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="task-priority">Priority</label>
+                    <select name="priority" id="task-priority">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="due-date">Due date</label>
+                    <input type="date" name="due-date" id="due-date">
+                </div>
+                <div>
+                    <label for="description"></label>
+                    <textarea name="description" id="description" rows="5" cols="5" placeholder="Do this, and that, and this, and that..."></textarea>
+                </div>
+                <div>
+                    <button type="submit" id="add-task">Add task</button>
+                </div>
+            </form>
         </div>  
         <div id="full-view">
             <div id="empty-view">Open a task to see its full view</div>
