@@ -1,4 +1,4 @@
-import { clearCards } from "../index.js";
+import { tasksArr, projectsArr } from "../index.js";
 import { Project, displayProjects, pushProject } from "./projectControls.js";
 import { Task, pushTask, displayTasks } from "./taskControls.js";
 import { changeTabLabelTo } from "./tabs.js";
@@ -34,6 +34,7 @@ export default function modals(){
     });
     
     createTaskBtn.addEventListener('click', () => {
+        addProjectOptions();
         optionsModal.style.visibility = 'hidden';
         formsModal.style.visibility = 'visible';
         taskForm.reset();
@@ -98,5 +99,24 @@ function submitProject() {
     } else {
         title.style.border = '2px solid var(--red)';
     };
+};
 
+function addProjectOptions(){
+    const availableProjects = document.querySelector('#projects-dropdown');
+    for(let i = 0; i < projectsArr.length; i++){
+        if(availableProjects.lastChild.textContent !== 'None'){
+            console.log(availableProjects.lastChild);
+            availableProjects.lastChild.remove();
+        };
+    };
+    for(let i = 0; i < projectsArr.length; i++){
+        availableProjects.appendChild(createOption(projectsArr[i].title));
+    };
+};
+
+function createOption(value){
+    let option = document.createElement('option');
+    option.value = value;
+    option.textContent = value;
+    return option;
 };
