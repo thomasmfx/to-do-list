@@ -7,7 +7,6 @@ export function loadHome() {
 
     const homeTab = document.querySelector('#home');
     homeTab.addEventListener('click', () => {
-        clearCards();
         displayTasks();
         changeTabLabelTo('Home');
     });
@@ -16,7 +15,6 @@ export function loadHome() {
 export function loadProjects() {
     const projectsTab = document.querySelector('#projects');
     projectsTab.addEventListener('click', () => {
-        clearCards();
         displayProjects();
         changeTabLabelTo('Projects');
     });

@@ -27,23 +27,6 @@ function clearCards() {
     });
 };
 
-// const hide = (function(){
-
-//     function hideCards(){
-//         const cards = document.querySelectorAll('.task-card');
-//         cards.forEach(card => {
-//             card.classList.add('hide');
-//         });
-//     };
-
-//     function hideProjects(){
-//         const projs = document.querySelectorAll('.project-card');
-//         projs.forEach(proj => {
-//             proj.classList.add('hide');
-//         });
-//     };
-// })();
-
 function setDatasetIndex() {
     let index = 0;
     const cards = document.querySelectorAll('.card');

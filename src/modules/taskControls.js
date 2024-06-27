@@ -50,7 +50,6 @@ function newTaskCard(task) {
     removeBtn.classList.add('fa-regular', 'fa-square-minus', 'remove');
     removeBtn.addEventListener('click', () => { 
         removeTask(removeBtn); 
-        clearCards();
         displayTasks();
         console.table(tasksArr);
     });
@@ -78,13 +77,15 @@ function newTaskCard(task) {
 function removeTask(btn) {
     const btnCard = btn.parentElement.parentElement.parentElement;
     tasksArr.splice(btnCard.dataset.index, 1);
-    btnCard.remove()};
+    btnCard.remove()
+};
 
 function pushTask(task) {
     tasksArr.push(task)
 };
 
 function displayTasks() {
+    clearCards();
     for(const task of tasksArr) {
         newTaskCard(task);
     };

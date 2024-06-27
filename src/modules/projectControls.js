@@ -41,9 +41,7 @@ function newProjectCard(project) {
     removeBtn.classList.add('fa-regular', 'fa-square-minus', 'remove');
     removeBtn.addEventListener('click', () => { 
         removeProject(removeBtn); 
-        clearCards();
         displayProjects();
-        // console.table(projectsArr);
     });
 
     btnsDiv.append(editBtn, removeBtn);
@@ -65,6 +63,7 @@ function pushProject(project) {
 };
 
 function displayProjects() {
+    clearCards();
     for(const proj of projectsArr) {
         newProjectCard(proj);
     };

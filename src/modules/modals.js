@@ -1,5 +1,7 @@
 import { clearCards } from "../index.js";
+import { Project, displayProjects, pushProject } from "./projectControls.js";
 import { Task, pushTask, displayTasks } from "./taskControls.js";
+import { changeTabLabelTo } from "./tabs.js";
 
 const createBtn = document.querySelector('#create');
 
@@ -16,14 +18,18 @@ const addProj = document.querySelector('#add-project');
 function modals(){
     addTask.addEventListener('click', function(event) {
         event.preventDefault();
+        submitTask();
     });
 
     addProj.addEventListener('click', function(event) {
         event.preventDefault();
+        submitProject();
     });
     
     createBtn.addEventListener('click', () => {
         optionsModal.style.visibility = 'visible';
+        taskForm.style.display = 'none';
+        projForm.style.display = 'none';
         closeModalBheavior(optionsModal);
     });
     
@@ -54,15 +60,46 @@ function closeModalBheavior(modal) {
     };
 };
 
-// function submitTask() {
-//     const title = document.querySelector('#task-title').value;
-//     const project = document.querySelector('#projects-dropdown').value;
-//     const priority = document.querySelector('#task-priority').value;
-//     const dueDate = document.querySelector('#due-date').value;
-//     const description = document.querySelector('#project-desrcription').value;
+function submitTask() {
+    const title = document.querySelector('#task-title');
+    const project = document.querySelector('#projects-dropdown');
+    const dueDate = document.querySelector('#due-date');
+    const priority = document.querySelector('#task-priority');
+    const description = document.querySelector('#project-description');
 
-//     let task = new Task(title, project)
-// };
+    if(title.value !== '') {
+        let task = new Task(title.value, project.value, dueDate.value, priority.value, description.value);
+        pushTask(task);
+        displayTasks();
+        changeTabLabelTo('Home');
+        
+        formsModal.style.visibility = 'hidden';
+        taskForm.style.display = 'none';
+        title.style.border = '2px solid var(--borders-gray)';
+    } else {
+        title.style.border = '2px solid var(--red)';
+    };
+};
+
+function submitProject() {
+    const title = document.querySelector('#project-title');
+    const link = document.querySelector('#project-title');
+    const description = document.querySelector('#project-title');
+
+    if(title.value !== '') {
+        let proj = new Project(title.value, link.value, description.value)
+        pushProject(proj);
+        displayProjects();
+        changeTabLabelTo('Projects');
+        
+        formsModal.style.visibility = 'hidden';
+        projForm.style.display = 'none';
+        title.style.border = '2px solid var(--borders-gray)';
+    } else {
+        title.style.border = '2px solid var(--red)';
+    };
+
+};
 
 
 export default modals;
