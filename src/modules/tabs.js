@@ -2,29 +2,34 @@ import { clearCards } from "../index.js";
 import { displayProjects } from "./projectControls";
 import { displayTasks } from "./taskControls";
 
-export function loadHome() {
+let lastTab = 'Home';
+
+function loadHome() {
     displayTasks();
 
     const homeTab = document.querySelector('#home');
     homeTab.addEventListener('click', () => {
+        lastTab = 'Home';
         displayTasks();
         changeTabLabelTo('Home');
     });
 };
 
-export function loadProjects() {
+function loadProjects() {
     const projectsTab = document.querySelector('#projects');
     projectsTab.addEventListener('click', () => {
+        lastTab = 'Projects'
         displayProjects();
         changeTabLabelTo('Projects');
     });
 };
 
-export function changeTabLabelTo(newTab) {
+function changeTabLabelTo(newTab) {
     const currentTab = document.querySelector('#current-tab');
     currentTab.textContent = newTab;
 };
 
+export { lastTab, loadHome, loadProjects, changeTabLabelTo }
 
 
 

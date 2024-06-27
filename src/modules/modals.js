@@ -15,7 +15,7 @@ const addTask = document.querySelector('#add-task');
 const projForm = document.querySelector('#project-form');
 const addProj = document.querySelector('#add-project');
 
-function modals(){
+export default function modals(){
     addTask.addEventListener('click', function(event) {
         event.preventDefault();
         submitTask();
@@ -83,7 +83,7 @@ function submitTask() {
 
 function submitProject() {
     const title = document.querySelector('#project-title');
-    const link = document.querySelector('#project-title');
+    const link = document.querySelector('#project-link');
     const description = document.querySelector('#project-title');
 
     if(title.value !== '') {
@@ -100,6 +100,3 @@ function submitProject() {
     };
 
 };
-
-
-export default modals;

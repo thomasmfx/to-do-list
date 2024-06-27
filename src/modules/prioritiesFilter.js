@@ -1,8 +1,8 @@
-import { changeTabLabelTo } from './tabs.js';
+import { changeTabLabelTo, lastTab } from './tabs.js';
 
-let filter = false;
+let filter = null;
 
-function loadFilter() {
+export default function loadFilter() {
     const lowPriorBtn = document.querySelector('#low');
     const midPriorBtn = document.querySelector('#medium');
     const highPriorBtn = document.querySelector('#high');
@@ -21,7 +21,7 @@ function filterPriority(priority) {
     } else {
         filter = null;
         removeFilter(priority);
-        changeTabLabelTo('Home');
+        changeTabLabelTo(lastTab);
     };
 };
 
@@ -42,6 +42,4 @@ function removeFilter() {
         card.classList.remove('hide');
     });
 };
-
-export default loadFilter;
 

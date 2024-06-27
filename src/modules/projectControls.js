@@ -31,7 +31,7 @@ function newProjectCard(project) {
 
     const title = create.elWithClass('p', 'title', project.title);
     const link = create.elWithClass('a', 'link', project.link);
-    link.href = link;
+    link.href = project.link;
 
     const btnsDiv = create.elWithClass('div', 'actions');
 
