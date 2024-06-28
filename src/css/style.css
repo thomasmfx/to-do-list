@@ -161,15 +161,18 @@ i.fa-github {
     -webkit-text-stroke: 1px var(--default-gray);
 }
 
-.red {
+.red,
+.high {
     color: var(--red);
 }
 
-.yellow {
+.yellow,
+.medium {
     color: var(--yellow);
 }
 
-.blue {
+.blue,
+.low {
     color: var(--argentinian-blue);
 }
 
@@ -290,7 +293,8 @@ main > #min-view {
 
 
 #full-view {
-    display: flex;
+    display: grid;
+    grid-template-rows: min-content;
     border-right: 2px solid var(--borders-gray);
 }
 
@@ -516,4 +520,66 @@ button[type="submit"]:hover {
 
 .hide {
     display: none;
+}
+
+/* FULL VIEW */
+
+
+
+#task-full {
+    display: grid;
+    grid-template-columns: 1fr 5em;
+    grid-template-rows: repeat(3, min-content);
+
+    padding: 1em;
+}
+
+#task-full-info {
+    grid-row: 1 / 2;
+
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+
+    color: var(--black);
+    font-size: 1.3rem;
+}
+
+#task-full-info > .fa-circle {
+    margin-top: 4px;
+    font-size: 0.7rem;
+}
+
+#task-full-status {
+    grid-row: 2 / 3;
+    
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+    color: var(--default-gray);
+}
+
+#task-full-status > .checkbox {
+    opacity: 60%;
+}
+#task-full-status > .checkbox:checked {
+    opacity: 100%;
+}
+
+#task-full-notes {
+    grid-column: 1 / 2;
+    
+    color: var(--dark-gray);
+    padding-top: 1.5em;
+}
+
+.point {
+    color: var(--borders-gray);
+    font-size: 1.2rem;
+}
+
+.line {
+    background-color: var(--borders-gray);
+    height: 2px;
+    align-self: start;    grid-column: 1 / -1;
 }
