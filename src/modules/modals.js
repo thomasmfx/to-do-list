@@ -66,10 +66,10 @@ function submitTask() {
     const project = document.querySelector('#projects-dropdown');
     const dueDate = document.querySelector('#due-date');
     const priority = document.querySelector('#task-priority');
-    const description = document.querySelector('#project-description');
+    const notes = document.querySelector('#task-notes');
 
     if(title.value !== '') {
-        let task = new Task(title.value, project.value, dueDate.value, priority.value, description.value);
+        let task = new Task(title.value, project.value, dueDate.value, priority.value, notes.value);
         pushTask(task);
         displayTasks();
         changeTabLabelTo('Home');

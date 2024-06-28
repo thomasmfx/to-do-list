@@ -10,9 +10,9 @@ let tasksArr = [];
 let projectsArr = []; 
 
 // Filling some tasks
-pushTask(new Task("Header", 'Restaurant Page', '10-13-2005', 'High'));
-pushTask(new Task('Nav', 'Dashboard', '05-07-2024', 'low', 'nav icons'));
-pushTask(new Task('IDs and Classes best practices', '', '07-08-2024', 'medium'));
+pushTask(new Task("Header", 'Restaurant Page', '10/13/2005', 'High', 'Header components: Logo, dark/light mode theme icon, and login button'));
+pushTask(new Task('Nav', 'Dashboard', '05/07/2024', 'low', 'nav icons'));
+pushTask(new Task('IDs and Classes best practices', '', '07/08/2024', 'medium', 'Gotta have a clean code huh?'));
 console.table(tasksArr);
 
 // And some projects

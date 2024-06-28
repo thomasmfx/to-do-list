@@ -18,7 +18,7 @@ function filterPriority(priority) {
         filter = priority;
         applyFilter(priority);
         changeTabLabelTo(`${formated} priority`);
-    } else {
+    } else{
         filter = null;
         removeFilter(priority);
         changeTabLabelTo(lastTab);

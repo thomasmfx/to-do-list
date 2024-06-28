@@ -1,12 +1,15 @@
 import create from './domCreator.js';
 import { tasksArr, setDatasetIndex, clearCards } from '../index.js';
+import { expandTask } from './expanded.js';
+
 
 class Task {
-    constructor(title, project, dueDate, priority) {
+    constructor(title, project, dueDate, priority, notes) {
         this.title = title,
         this.project = project,
         this.dueDate = dueDate,
         this.priority = priority.toLowerCase(),
+        this.notes = notes,
         this.done = false
     };
 };
@@ -64,6 +67,10 @@ function newTaskCard(task) {
             // console.log(tasksArr[parentCard.dataset.index].done);
         };
     };
+
+    card.addEventListener('click', () => {
+        expandTask(card.dataset.index)
+    });
     
     dateAndActions.append(dueDate, editBtn, removeBtn);
     info.append(title, taskProject);
