@@ -24,7 +24,10 @@ export function expandTask(index){
             const checkbox = create.elWithClass('input', 'checkbox');
             checkbox.type = 'checkbox';
 
-            const notes = create.elWithId('p', 'task-full-notes', tasksArr[i].notes);
+            const notesDiv = create.elWithId('pre', 'task-full-notes');
+            const notes = create.el('p', tasksArr[i].notes);
+
+            notesDiv.appendChild(notes);
             
             const line = create.elWithClass('div', 'line');
 
@@ -39,10 +42,9 @@ export function expandTask(index){
             status.appendChild(checkbox);
             info.append(title, priority);
 
-            taskFull.append(info, status, notes);
+            taskFull.append(info, status, notesDiv);
             fullView.append(taskFull, line);
-        } else {
-            console.log(tasksArr[i])
+
         };
     };
 };

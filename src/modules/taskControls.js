@@ -2,7 +2,6 @@ import create from './domCreator.js';
 import { tasksArr, setDatasetIndex, clearCards } from '../index.js';
 import { expandTask } from './expanded.js';
 
-
 class Task {
     constructor(title, project, dueDate, priority, notes) {
         this.title = title,
@@ -83,11 +82,11 @@ function newTaskCard(task) {
 function removeTask(btn) {
     const btnCard = btn.parentElement.parentElement.parentElement;
     tasksArr.splice(btnCard.dataset.index, 1);
-    btnCard.remove()
+    btnCard.remove();
 };
 
 function pushTask(task) {
-    tasksArr.push(task)
+    tasksArr.push(task);
 };
 
 function displayTasks() {
