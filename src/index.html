@@ -47,7 +47,6 @@
         </div>  
         <div id="full-view">
             <div id="empty-view">Open a task/project to see its full view</div>
-        </div>
         <div id="modal-options">
             <div id="create-options">
                 <button id="create-task">Task</button>
@@ -78,11 +77,7 @@
                 <div>
                     <label for="due-date">Due date</label>
                     <input type="text" name="due-date" id="due-date" placeholder="dd-mm-yyyy" maxlength="10"
-                    onkeydown="this.value=this.value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2').replace(/[^\d\/]/g,'')">
-                </div>
-                <div>
-                    <label for="task-description">Description</label>
-                    <textarea name="task-description" id="task-description" rows="5" cols="5" placeholder="Do this, and that, and this, and that..."></textarea>
+                    onkeydown="this.value=this.value.replace(/^(\d\d)(\d)$/g,'$1-$2').replace(/^(\d\d-\d\d)(\d+)$/g,'$1-$2').replace(/[^\d-]/g,'')">
                 </div>
                 <div>
                     <button type="submit" id="add-task">Add task</button>
@@ -101,7 +96,7 @@
                 </div>
                 <div>
                     <label for="project-description">Description</label>
-                    <textarea name="project-description" id="project-description" rows="5" cols="5" placeholder="Website to showcase my personal projects"></textarea>
+                    <textarea name="project-description" id="project-description" rows="5" cols="5" placeholder="Website to showcase my personal projects" maxlength="300"></textarea>
                 </div>
                 <div>
                     <button type="submit" id="add-project">Add project</button>

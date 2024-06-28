@@ -2,12 +2,11 @@ import create from './domCreator.js';
 import { tasksArr, setDatasetIndex, clearCards } from '../index.js';
 
 class Task {
-    constructor(title, project, dueDate, priority, description) {
+    constructor(title, project, dueDate, priority) {
         this.title = title,
         this.project = project,
         this.dueDate = dueDate,
         this.priority = priority.toLowerCase(),
-        this.description = description,
         this.done = false
     };
 };
@@ -70,7 +69,7 @@ function newTaskCard(task) {
     info.append(title, taskProject);
     wrapper.append(checkbox, info, dateAndActions);
     card.append(priority, wrapper);
-    
+
     minView.appendChild(card);
 };
 
