@@ -202,13 +202,12 @@ main > #min-view {
 
 .task-card {
     padding: 0 1em;
-
     border: 2px solid;
     border-radius: 15px;
     border-color: transparent;
 
     display: grid;
-    grid-template-columns: 0.6em 1fr;
+    grid-template-columns: 0.6em min-content 1fr min-content;
     grid-template-rows: 1fr;
 
     transition: .1s ease-in-out;
@@ -219,7 +218,7 @@ main > #min-view {
     scale: 1.01;
 }
 
-.task-card > .priority {
+.priority {
     height: 100%;
     width: 100%;
     grid-row: 1 / 2;
@@ -228,67 +227,93 @@ main > #min-view {
     border-bottom-left-radius: 1em;
 }
 
-.task-card > .wrapper {
-    grid-row: 1 / -1;
-    grid-column: 2 / -1;
+.checkbox-div {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    display: grid;
+    border-top: 2px solid var(--default-gray);
+    border-bottom: 2px solid var(--default-gray);
+    align-content: center;
+    justify-items: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
 
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-right: 2px solid var(--default-gray);
+.checkbox,
+.checkbox:hover {
+    cursor: pointer;
+    accent-color: var(--logo-blue);
+    transform: scale(1.4);
+    margin-bottom: 1px;
+}
+
+div.content-wrapper {
+    grid-row: 1 / 2;
+    grid-column: 3 / 4;
+
     border-top: 2px solid var(--default-gray);
     border-bottom: 2px solid var(--default-gray);
 
-    display: grid;
-    grid-template-columns: 30px 1fr min-content;
-    grid-template-rows: 1fr;
-    column-gap: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1em;
+    justify-content: space-between;
     align-items: center;
 }
 
-.wrapper > .checkbox {
-    margin-left: 0.4em;
-    accent-color: var(--logo-blue);
-    transform: scale(1.4);
-}
-
-.checkbox:hover {
-    cursor: pointer;
-}
-
-.info > .title {
+p.task-title {
     color: var(--black);
     font-size: 1.2rem;
 }
 
-.info > .project {
+p.project-title {
     font-size: 0.8rem;
     color: var(--dark-gray);
 }
 
-.date-and-actions {
+p.due-date {
+    grid-column: 4 / 5;
     justify-self: end;
-
-    display: flex;
-    align-items: center;
-    column-gap: 1em;
-    margin-right: 1em;
+    padding-right: 10%;
     color: var(--dark-gray);
     font-size: 1rem;
 }
 
-.date-and-actions > button {
-    background-color: transparent;
-    border: none;
-    padding: 6px 7px;
-    color: var(--dark-gray);
-    border-radius: 4px;
+div.task-actions {
+    grid-row: 1 / 2;
+    grid-column: 4 / -1;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-right: 2px solid var(--default-gray);
+    border-top: 2px solid var(--default-gray);
+    border-bottom: 2px solid var(--default-gray);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.5em;
+    padding-right: 1em;
 }
 
-.date-and-actions > button:hover {
+button.edit-task,
+button.remove-task {
+    background-color: transparent;
+    border: none;
+    padding: 4px 8px;
+    color: var(--dark-gray);
+    border-radius: 5px;
+}
+
+button.edit-task:hover,
+button.remove-task:hover {
     cursor: pointer;
     background-color: var(--light-gray);
 }
 
+
+.task-card:has(.checkbox:checked){
+    opacity: 40%;
+}
 /* Full view */
 
 #full-view {
@@ -502,8 +527,6 @@ button[type="submit"]:hover {
     visibility: visible;
     display: block;
 }
-
-
 
 /* FULL VIEW */
 
