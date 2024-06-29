@@ -1,58 +1,19 @@
 import './css/style.css';
-import setImages from './modules/logo.js';
-import { Task, pushTask } from './modules/taskControls.js';
-import { Project, pushProject } from './modules/projectControls.js';
-import loadModals from './modules/modals.js';
-import { loadHome, loadProjects } from './modules/tabs.js';
-import loadFilter from './modules/prioritiesFilter.js';
+import setImages from '../modules/logo.js';
+import { Task } from './models/tasks.js';
+import { Project } from './models/projects.js';
+// import { linkTasksToProjects, updateIds } from './controllers/controller.js';
+// import newItem from './views/modals/displayOptions.js';
 
-let tasksArr = [];
-let projectsArr = []; 
+const task = new Task('UM', 'Projeto', '01/01/2024', 'low', 'Lorem ipsum notes');
+const task2 = new Task('DOIS', 'Projeto', '01/01/2024', 'low', 'Lorem ipsum notes');
+const proj = new Project('Projeto', 'linkprojeto.com', 'Descrição do projeto');
 
-// Filling some tasks
-pushTask(new Task("Header", 'Restaurant Page', '10/13/2005', 'High', 'Header components: Logo, dark/light mode theme icon, and login button'));
-pushTask(new Task('Nav', 'Dashboard', '05/07/2024', 'low', 'nav icons'));
-pushTask(new Task('IDs and Classes best practices', '', '07/08/2024', 'medium', 'Gotta have a clean code huh?'));
-console.table(tasksArr);
+// updateIds();
+// linkTasksToProjects();
+// console.log(task)
+// console.log(task2)
+// console.log(proj)
+// console.log(proj.getAllProjects())
+// console.log(proj.tasks)
 
-// And some projects
-pushProject(new Project('To-do list', 'teste.com', 'Ah sei lá n sei oq'));
-pushProject(new Project('Outro projeto', '', 'Ah sei lá n sei oq'));
-console.table(projectsArr);
-
-function clearCards() {
-    const allCards = document.querySelectorAll('.card');
-    allCards.forEach(card => {
-        card.remove();
-    });
-};
-
-function setDatasetIndex() {
-    let index = 0;
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        card.dataset.index = index;
-        index++;
-    });
-};
-
-function emptyViewText(){
-    const fullView = document.querySelector('#full-view');
-    const label = document.querySelector('#empty-view');
-
-    if(fullView.lastElementChild.id !== label.id){
-        label.classList.add('hide');
-    } else {
-        label.classList.remove('hide');
-    };
-};
-
-window.onload = loadHome(), loadProjects(), loadModals(), loadFilter(), emptyViewText();
-
-export { 
-    tasksArr, 
-    projectsArr, 
-    setDatasetIndex, 
-    clearCards,
-    emptyViewText
-};
