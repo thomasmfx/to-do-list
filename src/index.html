@@ -48,14 +48,12 @@
         <div id="full-view">
             <div id="empty-view">Open a task/project to see its full view</div>
         </div>
-        <div id="modal-options">
-            <div id="create-options">
+        <div id="options-modal" class="hide">
+            <div id="options-to-create">
                 <button id="create-task">Task</button>
                 <button id="create-project">Project</button>
             </div>
-        </div>
-        <div id="modal-forms">
-            <form action="" id="task-form">
+            <form action="" id="task-form" class="hide">
                 <h1>New task</h1>
                 <div>
                     <label for="task-title">Title*</label>
@@ -89,7 +87,7 @@
                 </div>
             </form>
             <!--  -->
-            <form action="" id="project-form">
+            <form action="" id="project-form" class="hide">
                 <h1>New project</h1>
                 <div>
                     <label for="project-title">Title*</label>
@@ -107,6 +105,7 @@
                     <button type="submit" id="add-project">Add project</button>
                 </div>
             </form>
+        </div>
     </main>
 </body>
 </html>
