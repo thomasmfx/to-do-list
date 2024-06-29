@@ -1,5 +1,6 @@
 import create from './domCreator.js';
 import { projectsArr, setDatasetIndex, clearCards } from '../index.js';
+import { expandProject } from './expanded.js';
 
 class Project {
     constructor(title, link, description) {
@@ -42,6 +43,10 @@ function newProjectCard(project) {
     removeBtn.addEventListener('click', () => { 
         removeProject(removeBtn); 
         displayProjects();
+    });
+
+    info.addEventListener('click', () => {
+        expandProject(card.dataset.index);
     });
 
     btnsDiv.append(editBtn, removeBtn);

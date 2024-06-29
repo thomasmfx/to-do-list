@@ -239,7 +239,7 @@ main > #min-view {
     border-bottom: 2px solid var(--default-gray);
 
     display: grid;
-    grid-template-columns: 30px 1fr 1fr;
+    grid-template-columns: 30px 1fr min-content;
     grid-template-rows: 1fr;
     column-gap: 0.5em;
     align-items: center;
@@ -291,18 +291,16 @@ main > #min-view {
 
 /* Full view */
 
-
 #full-view {
     display: grid;
-    grid-template-rows: min-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, min-content);
     border-right: 2px solid var(--borders-gray);
 }
 
-#full-view > div#empty-view {
+#empty-view {
     color: var(--default-gray);
-    align-self: center;
-    margin-bottom: 5em;
-    width: 100%;
+    margin-top: 48%;
     text-align: center;
 }
 
@@ -347,7 +345,7 @@ main > #min-view {
     border-bottom: 2px solid var(--default-gray);
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr min-content;
     grid-template-rows: 1fr;
     column-gap: 0.5em;
     align-items: center;
@@ -368,6 +366,7 @@ main > #min-view {
     font-size: 0.8rem;
     color: var(--dark-gray);
     text-decoration: none;
+    width: min-content;
 }
 
 .info > .link:hover {
@@ -570,6 +569,7 @@ button[type="submit"]:hover {
 }
 
 #task-full-notes {
+    white-space: pre-wrap;
     grid-column: 1 / 2;
     
     color: var(--dark-gray);
@@ -577,6 +577,7 @@ button[type="submit"]:hover {
 }
 
 pre > p {
+    max-width: 60ch;
     font-family: 'Cascadia Code';
     font-size: 1rem;
     color: var(--dark-gray);
@@ -590,5 +591,41 @@ pre > p {
 .line {
     background-color: var(--borders-gray);
     height: 2px;
-    align-self: start;    grid-column: 1 / -1;
+    align-self: start; 
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+}
+
+/* FULL/EXPANDED PROJECT */
+
+#full-project {
+    display: grid;
+    grid-template-columns: 1fr 5em;
+    grid-template-rows: repeat(2, min-content);
+
+    padding: 1em;
+}
+
+#full-project-info > h1 {
+    color: var(--black);
+    font-size: 2rem;
+    margin-left: -2px;
+}
+
+#full-project-info > a {
+    font-size: 1.2rem;
+    color: var(--default-gray);
+    text-decoration: none;
+}
+
+#full-project-info > a:hover {
+    text-decoration: underline var(--default-gray);
+}
+
+#full-project-description {
+    white-space: pre-wrap;
+    grid-column: 1 / 2;
+    
+    color: var(--dark-gray);
+    padding-top: 1.5em;
 }

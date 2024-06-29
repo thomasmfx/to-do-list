@@ -3,19 +3,19 @@ import { Project, displayProjects, pushProject } from "./projectControls.js";
 import { Task, pushTask, displayTasks } from "./taskControls.js";
 import { changeTabLabelTo } from "./tabs.js";
 
-const createBtn = document.querySelector('#create');
-
-const optionsModal = document.querySelector('#modal-options');
-const createTaskBtn = document.querySelector('#create-task');
-const createProjBtn = document.querySelector('#create-project');
-
-const formsModal = document.querySelector('#modal-forms');
-const taskForm = document.querySelector('#task-form');
-const addTask = document.querySelector('#add-task');
-const projForm = document.querySelector('#project-form');
-const addProj = document.querySelector('#add-project');
 
 export default function modals(){
+    const createBtn = document.querySelector('#create');
+    const formsModal = document.querySelector('#modal-forms');
+
+    const optionsModal = document.querySelector('#modal-options');
+    const createTaskBtn = document.querySelector('#create-task');
+    const createProjBtn = document.querySelector('#create-project');
+    const taskForm = document.querySelector('#task-form');
+    const addTask = document.querySelector('#add-task');
+    const projForm = document.querySelector('#project-form');
+    const addProj = document.querySelector('#add-project');
+
     addTask.addEventListener('click', function(event) {
         event.preventDefault();
         submitTask();
@@ -25,7 +25,7 @@ export default function modals(){
         event.preventDefault();
         submitProject();
     });
-    
+
     createBtn.addEventListener('click', () => {
         optionsModal.style.visibility = 'visible';
         taskForm.style.display = 'none';
@@ -52,6 +52,10 @@ export default function modals(){
 };
 
 function closeModalBheavior(modal) {
+    const taskForm = document.querySelector('#task-form');
+    const projForm = document.querySelector('#project-form');
+
+
     window.onclick = function(event) {
         if (event.target === modal) {
             modal.style.visibility = 'hidden';
@@ -62,6 +66,9 @@ function closeModalBheavior(modal) {
 };
 
 function submitTask() {
+    const formsModal = document.querySelector('#modal-forms');
+    const taskForm = document.querySelector('#task-form');
+
     const title = document.querySelector('#task-title');
     const project = document.querySelector('#projects-dropdown');
     const dueDate = document.querySelector('#due-date');
@@ -83,6 +90,10 @@ function submitTask() {
 };
 
 function submitProject() {
+    const formsModal = document.querySelector('#modal-forms');
+    const projForm = document.querySelector('#project-form');
+
+
     const title = document.querySelector('#project-title');
     const link = document.querySelector('#project-link');
     const description = document.querySelector('#project-title');

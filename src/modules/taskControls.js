@@ -67,8 +67,8 @@ function newTaskCard(task) {
         };
     };
 
-    card.addEventListener('click', () => {
-        expandTask(card.dataset.index)
+    info.addEventListener('click', () => {
+        expandTask(card.dataset.index);
     });
     
     dateAndActions.append(dueDate, editBtn, removeBtn);
