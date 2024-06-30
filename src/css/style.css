@@ -289,8 +289,6 @@ div.task-actions {
 
 .project-card {
     padding: 0 1em;
-    border: 2px solid;
-    border-radius: 15px;
     border: none;
 
     display: grid;
@@ -315,8 +313,8 @@ div.task-actions {
 }
 
 .project-wrapper {
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
     border-right: 2px solid var(--default-gray);
     border-top: 2px solid var(--default-gray);
     border-bottom: 2px solid var(--default-gray);
