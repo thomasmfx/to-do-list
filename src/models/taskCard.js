@@ -15,6 +15,8 @@ export default function newTaskCard(task) {
     const editIcon = create.elWithClass('i', '', 'fa-regular', 'fa-pen-to-square');
     const removeTask = create.elWithClass('button', '', 'remove-task');
     const removeIcon = create.elWithClass('i', '', 'fa-regular', 'fa-square-minus');
+
+    cardDiv.dataset.index = task.id;
     checkbox.type = 'checkbox';
 
     removeTask.appendChild(removeIcon);
