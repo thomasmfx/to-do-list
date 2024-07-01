@@ -1,3 +1,4 @@
+import { check } from '../controllers/tasksController';
 import create from '../others/domCreator';
 
 export default function newTaskCard(task) {
@@ -18,7 +19,11 @@ export default function newTaskCard(task) {
 
     cardDiv.dataset.index = task.id;
     checkbox.type = 'checkbox';
-
+    checkbox.addEventListener('click', () => {
+        check(checkbox, task.id);
+    });
+    checkbox.checked = task.isDone;
+    
     removeTask.appendChild(removeIcon);
     editTask.appendChild(editIcon);
     actions.append(editTask, removeTask);
@@ -26,7 +31,7 @@ export default function newTaskCard(task) {
     content.append(info, dueDate);
     checkboxDiv.appendChild(checkbox)
     cardDiv.append(priority, checkboxDiv, content, actions);
-
+    
     return cardDiv;
 };
 

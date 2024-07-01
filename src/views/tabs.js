@@ -15,7 +15,7 @@ export default function loadTabs(){
     projectsBtn.addEventListener('click', () => {
         clearDisplayed();
         displayProjects();
-        changeLabelto('Projects')
+        changeLabelto('Projects');
     });
 };
 
