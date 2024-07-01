@@ -1,4 +1,6 @@
 import create from '../others/domCreator';
+import expandProject from '../views/full-view/expandProject';
+import { displayProjectTasks } from '../controllers/tasksController';
 
 export default function newProjectCard(project) {
     const projDiv = create.elWithClass('div', '', 'project-card');
@@ -13,6 +15,13 @@ export default function newProjectCard(project) {
     const removeProjectBtn = create.elWithClass('button', '', 'remove-project');
     const removeIcon = create.elWithClass('i', '', 'fa-regular', 'fa-square-minus');
     link.href = project.link;
+    info.addEventListener('click', () => {
+        expandProject(project.id);
+        displayProjectTasks(project);
+    });
+    stripe.addEventListener('click', () => {
+        expandProject(project.id);
+    });
 
     removeProjectBtn.appendChild(removeIcon);
     editProjectBtn.appendChild(editIcon);
