@@ -1,6 +1,6 @@
 import { Project } from "../../models/projects";
-import { submitProject } from "../../controllers/controller";
-import { displayForm, hide } from "./displayOptions";
+import { displayForm } from "./displayOptions";
+import { submitProject } from "../../controllers/projectsController";
 
 const baseModal = document.querySelector('#options-modal');
 const createProjBtn = document.querySelector('#create-project');

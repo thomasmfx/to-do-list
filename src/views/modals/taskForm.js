@@ -1,6 +1,6 @@
-import { displayForm, hide } from "./displayOptions";
-import { submitTask } from "../../controllers/controller";
-import { Task } from '../../models/tasks.js';
+import { Task } from '../../models/tasks';
+import { displayForm } from "./displayOptions";
+import { submitTask } from "../../controllers/tasksController";
 
 const baseModal = document.querySelector('#options-modal');
 const createTaskBtn = document.querySelector('#create-task');

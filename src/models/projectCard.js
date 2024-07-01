@@ -1,4 +1,4 @@
-import create from '../others/domCreator.js';
+import create from '../others/domCreator';
 
 export default function newProjectCard(project) {
     const projDiv = create.elWithClass('div', '', 'project-card');

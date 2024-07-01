@@ -8,14 +8,14 @@ const createTaskBtn = document.querySelector('#create-task');
 const createProjBtn = document.querySelector('#create-project');
 
 buttonToCreate.addEventListener('click', () => {
-    display(baseModal, optionsToCreate, createTaskBtn, createProjBtn) 
+    unhide(baseModal, optionsToCreate, createTaskBtn, createProjBtn)
     closeModalBheavior(baseModal);
 });
 
 export function displayForm(form){
     form.reset();
     hide(optionsToCreate, createTaskBtn, createProjBtn)
-    display(form)
+    unhide(form)
     closeModalBheavior(baseModal);
 }
 
@@ -26,7 +26,7 @@ export function hide(...elements){
     };
 };
 
-export function display(...elements){
+function unhide(...elements){
     for(const el of elements){
         el.classList.remove('hide');
         el.classList.add('display');

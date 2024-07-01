@@ -1,10 +1,11 @@
 import './css/style.css';
-import setImages from '../modules/logo.js';
-import { Task } from './models/tasks.js';
-import { Project } from './models/projects.js';
-import { linkTasksToProjects, displayTasks } from './controllers/controller.js';
-import loadModals from './views/modals/displayOptions.js';
-import loadTabs from './views/tabs.js';
+import setImages from '../modules/logo';
+import { Task } from './models/tasks';
+import { Project } from './models/projects';
+import { linkTasksToProjects } from './controllers/general';
+import { displayTasks } from './controllers/tasksController';
+import loadModals from './views/modals/displayOptions';
+import loadTabs from './views/tabs';
 
 // Filling some tasks and projects
 const task = new Task('UM', 'Projeto', '01/01/2024', 'low', 'Lorem ipsum notes');

@@ -1,4 +1,4 @@
-import create from '../others/domCreator.js';
+import create from '../others/domCreator';
 
 export default function newTaskCard(task) {
     const cardDiv = create.elWithClass('div', '', 'task-card');
