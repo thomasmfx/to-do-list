@@ -1,6 +1,8 @@
 import { Task } from '../../models/tasks';
-import { displayForm } from "./displayOptions";
+import { projects } from '../../models/projects';
+import { displayForm, getCurrentExpanded } from "./displayOptions";
 import { submitTask } from "../../controllers/tasksController";
+import expandProject from '../full-view/expandProject';
 
 const baseModal = document.querySelector('#options-modal');
 const createTaskBtn = document.querySelector('#create-task');
@@ -9,12 +11,14 @@ const submitTaskBtn = document.querySelector('#add-task')
 
 export function loadTaskForm(){
     createTaskBtn.addEventListener('click', () => {
+        loadAvailableProjects();
         displayForm(taskForm);
     });
-
+    
     submitTaskBtn.addEventListener('click', (event) => {
         event.preventDefault();
         submitTask(taskForm, baseModal);
+        updateProjectDisplayed();
     });
 };
 
@@ -25,7 +29,42 @@ export function createTask(){
     const dueDate = document.querySelector('input#due-date').value;
     const notes = document.querySelector('textarea#task-notes').value;
 
-    new Task(title, project, dueDate, priority, notes);
+    let task = new Task(title, project, dueDate, priority, notes);
+    addToProject(task);
+    return task
+};
+
+function addToProject(task){
+    for(const proj of projects){
+        if(proj.title === task.project){
+            proj.addTask(task);
+        };
+    };
+};
+
+function loadAvailableProjects(){
+    const availableProjects = document.querySelector('#projects-dropdown');
+    do {
+        availableProjects.lastChild.remove();
+    } while(availableProjects.lastChild.textContent !== 'None')
+
+    for(let i = 0; i < projects.length; i++){
+        availableProjects.appendChild(createOption(projects[i].title));
+    };
+};
+
+function createOption(value){
+    let option = document.createElement('option');
+    option.value = value;
+    option.textContent = value;
+    return option;
+};
+
+function updateProjectDisplayed(){
+    const fullView = document.querySelector('#full-view');
+    if(fullView.firstElementChild.id === 'full-project-div'){
+        expandProject(getCurrentExpanded());
+    };
 };
 
 loadTaskForm();

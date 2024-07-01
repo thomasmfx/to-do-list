@@ -1,5 +1,8 @@
 import create from '../../others/domCreator';
 import { projects } from "../../models/projects";
+import { updateCurrentExpanded } from '../modals/displayOptions';
+import { displayProjectTasks } from '../../controllers/tasksController';
+
 
 export default function expandProject(index){
     const fullView = document.querySelector('#full-view');
@@ -7,6 +10,7 @@ export default function expandProject(index){
     for(let i = 0; i < projects.length; i++){
         if(i === parseInt(index)){
             removeAllExpanded();
+            updateCurrentExpanded(i);
             const fullProjDiv = create.elWithId('div', 'full-project-div');
             const project = create.elWithId('div', 'full-project');
             const info = create.elWithId('div', 'full-project-info');
@@ -22,6 +26,8 @@ export default function expandProject(index){
             project.append(info, descDiv);
             fullProjDiv.append(project, line)
             fullView.append(fullProjDiv);
+
+            displayProjectTasks(projects[i]);
         };
     };
 };

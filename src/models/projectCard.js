@@ -1,6 +1,5 @@
 import create from '../others/domCreator';
 import expandProject from '../views/full-view/expandProject';
-import { displayProjectTasks } from '../controllers/tasksController';
 
 export default function newProjectCard(project) {
     const projDiv = create.elWithClass('div', '', 'project-card');
@@ -17,7 +16,6 @@ export default function newProjectCard(project) {
     link.href = project.link;
     info.addEventListener('click', () => {
         expandProject(project.id);
-        displayProjectTasks(project);
     });
     stripe.addEventListener('click', () => {
         expandProject(project.id);

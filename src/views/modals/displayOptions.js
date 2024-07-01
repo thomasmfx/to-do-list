@@ -1,6 +1,7 @@
 import loadTaskForm from "./taskForm";
 import loadProjForm from "./projForm";
 
+let currentExpanded = null;
 const buttonToCreate = document.querySelector('#create');
 const baseModal = document.querySelector('#options-modal');
 const optionsToCreate = document.querySelector('#options-to-create');
@@ -46,4 +47,13 @@ function closeModalBheavior(modal) {
                  projForm);
         };
     };
+};
+
+export function updateCurrentExpanded(arg){
+    currentExpanded = arg;
+    console.log(currentExpanded)
+};
+
+export function getCurrentExpanded(){
+    return currentExpanded;
 };
