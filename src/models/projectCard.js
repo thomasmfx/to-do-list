@@ -1,7 +1,7 @@
 import create from '../others/domCreator';
 import expandProject from '../views/full-view/expandProject';
 import { removeProjectDinamically } from '../controllers/projectActions';
-import { displayProjectForm } from '../views/modals/editProjectForm';
+import { displayProjectForm } from '../views/modal-forms/editProjectForm';
 
 export default function newProjectCard(project) {
     const projDiv = create.elWithClass('div', '', 'project-card');

@@ -4,7 +4,7 @@ import { Task } from './models/tasks';
 import { Project } from './models/projects';
 import { linkTasksToProjects } from './controllers/general';
 import { displayTasks } from './controllers/tasksController';
-import loadModals from './views/modals/displayOptions';
+import loadModals from './views/modal-forms/displayOptions';
 import loadTabs from './views/tabs';
 
 // Filling some tasks and projects

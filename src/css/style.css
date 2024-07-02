@@ -270,6 +270,10 @@ div.content-wrapper {
     padding-right: 10%;
 }
 
+div.task-info {
+    display: grid;
+    align-content: center;
+}
 
 p.task-project {
     font-size: 0.8rem;
@@ -338,6 +342,8 @@ div.task-actions {
 
 .project-info {
     margin-left: 0.8em;
+    display: grid;
+    align-content: center;
 }
 
 .project-link {

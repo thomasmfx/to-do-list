@@ -1,6 +1,6 @@
 import create from '../../others/domCreator';
 import { projects } from "../../models/projects";
-import { updateCurrentExpanded } from '../modals/displayOptions';
+import { updateCurrentExpanded } from '../modal-forms/displayOptions';
 import { displayProjectTasks } from '../../controllers/tasksController';
 import { removeAllExpanded } from './expandedCommon';
 
