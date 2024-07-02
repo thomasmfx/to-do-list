@@ -485,6 +485,7 @@ button#close:hover {
 #full-task-div {
     display: flex;
     flex-direction: column;
+    font-size: 1.2rem;
 }
 
 #task-full {
