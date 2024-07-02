@@ -30,7 +30,7 @@ class Task {
     };
 
     changeProject(newTitle){
-        this.project = newTitle;
+        this.project = newTitle
     }
 
     edit(newTitle, newProject, newDueDate, newPriority, newNotes){
@@ -42,4 +42,8 @@ class Task {
     };
 };
 
-export { Task, tasks }
+function filterTasks(newArr){
+    tasks = newArr
+};
+
+export { Task, tasks, filterTasks }
