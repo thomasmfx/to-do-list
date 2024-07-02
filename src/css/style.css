@@ -475,6 +475,12 @@ main > #min-view {
     padding-top: 1.5em;
 }
 /* EXPANDED TASKS */
+
+#full-task-div {
+    display: flex;
+    flex-direction: column;
+}
+
 #task-full {
     display: grid;
     grid-template-columns: 1fr 5em;

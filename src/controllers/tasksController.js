@@ -25,43 +25,52 @@ function displayProjectTasks(proj){
     fullView.appendChild(projectTasks)
 };
 
-
 function check(checkbox, index){
-    const cardMinimized = document.querySelector(`[data-index='${index}']`);
-    const cardExpanded = document.querySelector(`[data-full-index='${index}']`);
+    const tasksInMinView = document.querySelector(`[data-index='${index}']`);
+    const tasksInProjectExpanded = document.querySelector(`[data-full-index='${index}']`);
+    const taskExpanded = document.querySelector(`[data-expanded='${index}']`);
     tasks[index].changeIsDone();
 
     // Card exists in:
-    // minView AND fullView
-    if(cardMinimized !== null && cardExpanded !== null){
+    // minview AND expanded
+    if(tasksInMinView !== null && taskExpanded !== null){
         if(checkbox.checked === true){
-            cardMinimized.children[1].firstChild.checked = true;
-            cardExpanded.children[1].firstChild.checked = true;
+            tasksInMinView.children[1].firstChild.checked = true;
+            taskExpanded.children[1].lastChild.checked = true;
         } else {
-            cardMinimized.children[1].firstChild.checked = false;
-            cardExpanded.children[1].firstChild.checked = false;
+            tasksInMinView.children[1].firstChild.checked = false;
+            taskExpanded.children[1].lastChild.checked = false;
+        };
+    };
+
+    // minView AND fullView
+    if(tasksInMinView !== null && tasksInProjectExpanded !== null){
+        if(checkbox.checked === true){
+            tasksInMinView.children[1].firstChild.checked = true;
+            tasksInProjectExpanded.children[1].firstChild.checked = true;
+        } else {
+            tasksInMinView.children[1].firstChild.checked = false;
+            tasksInProjectExpanded.children[1].firstChild.checked = false;
         };
     };
 
     // Only minView
-    if(cardMinimized !== null && cardExpanded === null){
+    if(tasksInMinView !== null && tasksInProjectExpanded === null){
         if(checkbox.checked === true) {
-            cardMinimized.children[1].firstChild.checked = true;
+            tasksInMinView.children[1].firstChild.checked = true;
         } else {
-            cardMinimized.children[1].firstChild.checked = false;
+            tasksInMinView.children[1].firstChild.checked = false;
         };
     };
 
     // Only fullView
-    if(cardExpanded !== null && cardMinimized === null){
+    if(tasksInProjectExpanded !== null && tasksInMinView === null){
         if(checkbox.checked === true) {
-            cardExpanded.children[1].firstChild.checked = true;
+            tasksInProjectExpanded.children[1].firstChild.checked = true;
         } else {
-            cardExpanded.children[1].firstChild.checked = false;
+            tasksInProjectExpanded.children[1].firstChild.checked = false;
         };
     };
-
-    // I'll probabbly have to come back for when the feature to expand tasks is added
 };
 
 function submitTask(modalToHide, otherModalTohide){

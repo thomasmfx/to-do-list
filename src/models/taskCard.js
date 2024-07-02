@@ -1,10 +1,11 @@
 import { check } from '../controllers/tasksController';
 import create from '../others/domCreator';
+import expandTask from '../views/full-view/expandedTask';
 
 export default function newTaskCard(task) {
     const cardDiv = create.elWithClass('div', '', 'task-card');
     const priority = create.elWithClass('div', '', 'priority', task.priority);
-    const content = create.elWithClass('div', '', 'content-wrapper');
+    const contentWrapper = create.elWithClass('div', '', 'content-wrapper');
     const checkboxDiv = create.elWithClass('div', '', 'checkbox-div');
     const checkbox = create.elWithClass('input', '', 'checkbox');
     const info = create.elWithClass('div', '', 'task-info');
@@ -19,18 +20,22 @@ export default function newTaskCard(task) {
 
     cardDiv.dataset.index = task.id;
     checkbox.type = 'checkbox';
+    checkbox.checked = task.isDone;
     checkbox.addEventListener('click', () => {
         check(checkbox, task.id);
     });
-    checkbox.checked = task.isDone;
+    contentWrapper.addEventListener('click', () => {
+        expandTask(task.id);
+    });
+
     
     removeTask.appendChild(removeIcon);
     editTask.appendChild(editIcon);
     actions.append(editTask, removeTask);
     info.append(title, project);
-    content.append(info, dueDate);
+    contentWrapper.append(info, dueDate);
     checkboxDiv.appendChild(checkbox)
-    cardDiv.append(priority, checkboxDiv, content, actions);
+    cardDiv.append(priority, checkboxDiv, contentWrapper, actions);
     
     return cardDiv;
 };
@@ -41,7 +46,7 @@ export default function newTaskCard(task) {
 //  ^ div.priority.low 
 //  ^ div.checkbox-div
 //      ^ input.checkbox
-//  ^ div.content-content
+//  ^ div.contentWrapper-contentWrapper
 //      ^ div.info
 //          ^ p.task-title
 //          ^ p.task-project
