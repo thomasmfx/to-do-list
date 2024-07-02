@@ -656,3 +656,7 @@ button[type="submit"]:hover {
     visibility: visible;
     display: block;
 }
+
+.invalid{
+    border: 2px solid var(--red);
+}

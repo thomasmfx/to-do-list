@@ -1,5 +1,5 @@
-import { Project } from "../../models/projects";
-import { displayForm } from "./displayOptions";
+import { Project, projects } from "../../models/projects";
+import { displayForm, hide } from "./displayOptions";
 import { submitProject } from "../../controllers/projectsController";
 
 const baseModal = document.querySelector('#options-modal');
@@ -14,7 +14,14 @@ export function loadProjForm(){
 
     submitProjBtn.addEventListener('click', (event) => {
         event.preventDefault();
-        submitProject(projForm, baseModal);
+        const title = document.querySelector('input#project-title');
+        let filter = projects.filter(proj => proj.title === title.value);
+        if(!filter[0]){
+            submitProject(projForm, baseModal);
+            title.classList.remove('invalid');
+        } else {
+            title.classList.add('invalid');
+        };
     });
 };
 

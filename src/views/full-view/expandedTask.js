@@ -1,7 +1,7 @@
 import create from '../../others/domCreator';
 import { tasks } from "../../models/tasks";
 import { removeAllExpanded } from './expandedCommon';
-import { check } from '../../controllers/tasksController';
+import { checkDinamically } from '../../controllers/taskActions';
 
 export default function expandTask(index){
     const fullView = document.querySelector('#full-view');
@@ -28,7 +28,7 @@ export default function expandTask(index){
             taskFull.dataset.expanded = index;
             checkbox.type = 'checkbox';
             checkbox.addEventListener('click', () => {
-                check(checkbox, index)
+                checkDinamically(checkbox, index)
             });
             closeBtn.addEventListener('click', () => {
                 removeAllExpanded(true);

@@ -35,4 +35,9 @@ function changeLabelto(what){
     document.querySelector('#current-tab').textContent = what;
 };
 
-export { updateIds, linkTasksToProjects, clearDisplayed, changeLabelto }
+function clearProjectTasks(){
+    const fullView = document.querySelector('#full-view');
+    fullView.lastElementChild.remove();
+};
+
+export { updateIds, linkTasksToProjects, clearDisplayed, changeLabelto, clearProjectTasks }

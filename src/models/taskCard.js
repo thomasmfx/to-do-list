@@ -1,4 +1,4 @@
-import { check, removeTask } from '../controllers/tasksController';
+import { checkDinamically, removeTaskDinamically } from '../controllers/taskActions';
 import create from '../others/domCreator';
 import expandTask from '../views/full-view/expandedTask';
 
@@ -21,7 +21,7 @@ export default function newTaskCard(task) {
     checkbox.type = 'checkbox';
     checkbox.checked = task.isDone;
     checkbox.addEventListener('click', () => {
-        check(checkbox, task.id);
+        checkDinamically(checkbox, task.id);
     });
     contentWrapper.addEventListener('click', () => {
         expandTask(task.id);
@@ -30,7 +30,7 @@ export default function newTaskCard(task) {
         expandTask(task.id);
     });
     removeTaskBtn.addEventListener('click', () => {
-        removeTask(task.id);
+        removeTaskDinamically(task.id);
     });
     
     removeTaskBtn.appendChild(removeIcon);
