@@ -1,4 +1,4 @@
-import { check } from '../controllers/tasksController';
+import { check, removeTask } from '../controllers/tasksController';
 import create from '../others/domCreator';
 import expandTask from '../views/full-view/expandedTask';
 
@@ -13,9 +13,9 @@ export default function newTaskCard(task) {
     const project = create.elWithClass('p', task.project, 'task-project');
     const dueDate = create.elWithClass('p', task.dueDate, 'due-date');
     const actions = create.elWithClass('div', '', 'task-actions');
-    const editTask = create.elWithClass('button', '', 'edit-task');
+    const editTaskBtn = create.elWithClass('button', '', 'edit-task');
     const editIcon = create.elWithClass('i', '', 'fa-regular', 'fa-pen-to-square');
-    const removeTask = create.elWithClass('button', '', 'remove-task');
+    const removeTaskBtn = create.elWithClass('button', '', 'remove-task');
     const removeIcon = create.elWithClass('i', '', 'fa-regular', 'fa-square-minus');
     cardDiv.dataset.index = task.id;
     checkbox.type = 'checkbox';
@@ -29,11 +29,13 @@ export default function newTaskCard(task) {
     priority.addEventListener('click', () => {
         expandTask(task.id);
     });
-
+    removeTaskBtn.addEventListener('click', () => {
+        removeTask(task.id);
+    });
     
-    removeTask.appendChild(removeIcon);
-    editTask.appendChild(editIcon);
-    actions.append(editTask, removeTask);
+    removeTaskBtn.appendChild(removeIcon);
+    editTaskBtn.appendChild(editIcon);
+    actions.append(editTaskBtn, removeTaskBtn);
     info.append(title, project);
     contentWrapper.append(info, dueDate);
     checkboxDiv.appendChild(checkbox)

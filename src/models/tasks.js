@@ -9,8 +9,8 @@ class Task {
         this.dueDate = dueDate,
         this.priority = priority.toLowerCase(),
         this.notes = notes,
-        this.isDone = false
-        this.id = null;
+        this.isDone = false,
+        this.projId = null;
 
         tasks.push(this);
         updateIds(tasks);

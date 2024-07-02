@@ -25,6 +25,7 @@ export default function expandProject(index){
             closeBtn.addEventListener('click', () => {
                 removeAllExpanded(true);
             });
+            project.dataset.projIndex = i;
 
             closeBtn.appendChild(closeIcon)
             descDiv.appendChild(description);

@@ -491,6 +491,7 @@ button#close:hover {
     display: grid;
     grid-template-columns: 1fr 5em;
     grid-template-rows: repeat(3, min-content);
+    align-items: start;
 
     padding: 1em;
 }

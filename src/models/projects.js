@@ -20,6 +20,7 @@ class Project {
 
     delete(){
         projects.splice(this.id, 1);
+        console.log(projects)
         updateIds(projects)
     };
 
