@@ -69,7 +69,7 @@ function removeTaskDinamically(index){
         displayProjectTasks(projects[projectExpanded.dataset.projIndex]);
     }
     if(taskExpanded !== null){
-        removeAllExpanded();
+        removeAllExpanded(true);
     }
 };
 

@@ -1,5 +1,5 @@
 import { Project, projects } from "../../models/projects";
-import { displayForm, hide } from "./displayOptions";
+import { displayForm } from "./displayOptions";
 import { submitProject } from "../../controllers/projectsController";
 
 const baseModal = document.querySelector('#options-modal');
