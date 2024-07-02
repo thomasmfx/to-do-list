@@ -1,5 +1,7 @@
 import create from '../others/domCreator';
 import expandProject from '../views/full-view/expandProject';
+import { removeProjectDinamically } from '../controllers/projectActions';
+import { displayProjectForm } from '../views/modals/editProjectForm';
 
 export default function newProjectCard(project) {
     const projDiv = create.elWithClass('div', '', 'project-card');
@@ -14,11 +16,18 @@ export default function newProjectCard(project) {
     const removeProjectBtn = create.elWithClass('button', '', 'remove-project');
     const removeIcon = create.elWithClass('i', '', 'fa-regular', 'fa-square-minus');
     link.href = project.link;
+    projDiv.dataset.projId = project.id;
     info.addEventListener('click', () => {
         expandProject(project.id);
     });
     stripe.addEventListener('click', () => {
         expandProject(project.id);
+    });
+    removeProjectBtn.addEventListener('click', () => {
+        removeProjectDinamically(project.id);
+    });
+    editProjectBtn.addEventListener('click', () => {
+        displayProjectForm(project.id)
     });
 
     removeProjectBtn.appendChild(removeIcon);
