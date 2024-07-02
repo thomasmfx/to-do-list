@@ -22,6 +22,12 @@ export function displayProjectForm(i){
     projToEditID = i;
     unhide(baseModal);
     displayForm(editProjForm);
+    const title = document.querySelector('input#edit-project-title');
+    const link = document.querySelector('input#edit-project-link');
+    const description = document.querySelector('textarea#edit-project-description');
+    title.value = projects[i].title
+    link.value = projects[i].link
+    description.textContent = projects[i].description
 };
 
 function saveChanges(projId){
@@ -31,7 +37,9 @@ function saveChanges(projId){
     let filter = projects.filter(proj => proj.title === title.value); 
     let lastTitle = projects[projId].title;
 
-    if(title.value !== '' && !filter[0]){
+    if(title.value !== '' && 
+        (!filter[0] || title.value === projects[projId].title)
+    ){
         projects[projId].edit(title.value, link, description);
         updateTaskProject(lastTitle, title.value);
         hide(baseModal, editProjForm);
@@ -53,10 +61,10 @@ function updateTaskProject(lastTitle, newTitle){
     };
 };
 
-function updateIfExpanded(id){
-    const expanded = document.querySelector(`[data-proj-index='${id}']`);
+function updateIfExpanded(dataIndex){
+    const expanded = document.querySelector(`[data-proj-index='${dataIndex}']`);
     if(expanded !== null){
-        expandProject(id);
+        expandProject(dataIndex);
     };
 };
 
