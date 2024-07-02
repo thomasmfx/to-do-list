@@ -396,26 +396,6 @@ button.remove-project:hover {
 
 /* FULL VIEW */
 
-#full-project-tasks-div {
-    height: 100%;
-    display: grid;
-    grid-template-rows: repeat(auto-fit, 60px);
-    row-gap: 1.2em;
-    overflow-x: hidden;
-}
-
-main > #min-view {
-    height: 100%;
-    border-right: 2px solid var(--borders-gray);
-    grid-row: 2 / -1;
-    grid-column: 2 / 3;
-
-    display: grid;
-    grid-template-rows: repeat(auto-fit, 60px);
-    row-gap: 1.2em;
-    padding-top: 1.2em;
-}
-
 #full-view {
     grid-row: 2 / -1;
     grid-column: 3 / -1;
@@ -435,7 +415,33 @@ main > #min-view {
     text-align: center;
 }
 
+button#close {
+    grid-column: -2 / -1;
+    grid-row: 1 / 2;
+    align-self: start;
+    justify-self: end;
+
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--default-gray);
+    border-radius: 5px;
+}
+
+button#close:hover {
+    cursor: pointer;
+    opacity: 90%;
+}
+
 /* EXPANDED PROJECTS */
+
+#full-project-tasks-div {
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 60px);
+    row-gap: 1.2em;
+    overflow-x: hidden;
+}
 
 #full-project-div {
     display: flex;
@@ -501,7 +507,6 @@ main > #min-view {
 }
 
 #task-full-info > .fa-circle {
-    margin-top: 4px;
     font-size: 0.7rem;
 }
 

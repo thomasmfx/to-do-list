@@ -12,6 +12,8 @@ export default function expandProject(index){
             removeAllExpanded();
             updateCurrentExpanded(i);
             const fullProjDiv = create.elWithId('div', 'full-project-div');
+            const closeBtn = create.elWithId('button', 'close');
+            const closeIcon = create.elWithClass('i', '', 'fa-solid', 'fa-xmark');
             const project = create.elWithId('div', 'full-project');
             const info = create.elWithId('div', 'full-project-info');
             const title = create.elWithId('h1', 'full-project-title', projects[i].title);
@@ -20,10 +22,14 @@ export default function expandProject(index){
             const description = create.el('p', projects[i].description)
             const line = create.elWithClass('div', '', 'line');
             link.href = projects[i].link;
+            closeBtn.addEventListener('click', () => {
+                removeAllExpanded(true);
+            });
 
+            closeBtn.appendChild(closeIcon)
             descDiv.appendChild(description);
             info.append(title, link);
-            project.append(info, descDiv);
+            project.append(closeBtn, info, descDiv);
             fullProjDiv.append(project, line)
             fullView.append(fullProjDiv);
 

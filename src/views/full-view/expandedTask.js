@@ -10,6 +10,8 @@ export default function expandTask(index){
         if(i === parseInt(index)){
             removeAllExpanded();
             const fullTaskDiv = create.elWithId('div', 'full-task-div');
+            const closeBtn = create.elWithId('button', 'close');
+            const closeIcon = create.elWithClass('i', '', 'fa-solid', 'fa-xmark');
             const point1 = create.elWithClass('span', '•', 'point');
             const point2 = create.elWithClass('span', '•', 'point');
             const taskFull = create.elWithId('div', 'task-full');
@@ -28,6 +30,9 @@ export default function expandTask(index){
             checkbox.addEventListener('click', () => {
                 check(checkbox, index)
             });
+            closeBtn.addEventListener('click', () => {
+                removeAllExpanded(true);
+            });
 
             if(tasks[i].isDone){
                 checkbox.checked = true;
@@ -39,11 +44,11 @@ export default function expandTask(index){
                 status.append(dueDate, point2);
             };
     
-
+            closeBtn.appendChild(closeIcon)
             notesDiv.appendChild(notes);
             status.appendChild(checkbox);
             info.append(title, priority);
-            taskFull.append(info, status, notesDiv);
+            taskFull.append(closeBtn, info, status, notesDiv);
             fullTaskDiv.append(taskFull, line)
             fullView.append(fullTaskDiv);
         };

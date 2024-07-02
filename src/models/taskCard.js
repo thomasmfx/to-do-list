@@ -17,7 +17,6 @@ export default function newTaskCard(task) {
     const editIcon = create.elWithClass('i', '', 'fa-regular', 'fa-pen-to-square');
     const removeTask = create.elWithClass('button', '', 'remove-task');
     const removeIcon = create.elWithClass('i', '', 'fa-regular', 'fa-square-minus');
-
     cardDiv.dataset.index = task.id;
     checkbox.type = 'checkbox';
     checkbox.checked = task.isDone;
@@ -25,6 +24,9 @@ export default function newTaskCard(task) {
         check(checkbox, task.id);
     });
     contentWrapper.addEventListener('click', () => {
+        expandTask(task.id);
+    });
+    priority.addEventListener('click', () => {
         expandTask(task.id);
     });
 
