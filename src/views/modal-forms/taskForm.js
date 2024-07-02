@@ -1,10 +1,9 @@
 import { Task } from '../../models/tasks';
 import { projects } from '../../models/projects';
-import { displayForm, getCurrentExpanded } from "./displayOptions";
+import { displayForm, getCurrentExpanded, baseModal } from "./displayOptions";
 import { submitTask } from "../../controllers/tasksController";
 import expandProject from '../full-view/expandProject';
 
-const baseModal = document.querySelector('#options-modal');
 const createTaskBtn = document.querySelector('#create-task');
 const taskForm = document.querySelector('#task-form');
 const submitTaskBtn = document.querySelector('#add-task')
@@ -44,12 +43,21 @@ function addToProject(task){
 
 function loadAvailableProjects(){
     const availableProjects = document.querySelector('#projects-dropdown');
+    const editFormAvailableProjects = document.querySelector('#edit-projects-dropdown');
     do {
         availableProjects.lastChild.remove();
     } while(availableProjects.lastChild.textContent !== 'None')
 
     for(let i = 0; i < projects.length; i++){
         availableProjects.appendChild(createOption(projects[i].title));
+    };
+
+    do {
+        editFormAvailableProjects.lastChild.remove();
+    } while(editFormAvailableProjects.lastChild.textContent !== 'None')
+
+    for(let i = 0; i < projects.length; i++){
+        editFormAvailableProjects.appendChild(createOption(projects[i].title));
     };
 };
 
@@ -68,3 +76,5 @@ function updateProjectDisplayed(){
 };
 
 loadTaskForm();
+
+export { loadAvailableProjects, addToProject }

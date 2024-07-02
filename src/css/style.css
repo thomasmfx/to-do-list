@@ -344,6 +344,7 @@ div.task-actions {
     margin-left: 0.8em;
     display: grid;
     align-content: center;
+    justify-content: start;
 }
 
 .project-link {

@@ -34,4 +34,5 @@ function submitTask(modalToHide, otherModalTohide){
     changeLabelto('Home');
     hide(modalToHide, otherModalTohide);
 };
+
 export { displayTasks, displayProjectTasks, submitTask }

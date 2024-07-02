@@ -1,11 +1,10 @@
 import { projects } from "../../models/projects";
-import { displayForm, unhide, hide } from "./displayOptions";
+import { displayForm, unhide, hide, baseModal } from "./displayOptions";
 import { clearDisplayed } from "../../controllers/general";
 import { displayProjects } from "../../controllers/projectsController";
 import { tasks } from "../../models/tasks";
 import expandProject from "../full-view/expandProject";
 
-const baseModal = document.querySelector('#options-modal');
 const editProjForm = document.querySelector('#edit-project-form');
 const editProjBtn = document.querySelector('#edit-project');
 

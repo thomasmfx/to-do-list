@@ -1,6 +1,7 @@
 import { checkDinamically, removeTaskDinamically } from '../controllers/taskActions';
 import create from '../others/domCreator';
 import expandTask from '../views/full-view/expandedTask';
+import { displayEditTaskForm } from '../views/modal-forms/editTaskForm';
 
 export default function newTaskCard(task) {
     const cardDiv = create.elWithClass('div', '', 'task-card');
@@ -31,6 +32,9 @@ export default function newTaskCard(task) {
     });
     removeTaskBtn.addEventListener('click', () => {
         removeTaskDinamically(task.id);
+    });
+    editTaskBtn.addEventListener('click', () => {
+        displayEditTaskForm(task.id);
     });
     
     removeTaskBtn.appendChild(removeIcon);

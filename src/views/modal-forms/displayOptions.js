@@ -60,3 +60,5 @@ export function updateCurrentExpanded(arg){
 export function getCurrentExpanded(){
     return currentExpanded;
 };
+
+export { baseModal }
