@@ -1,5 +1,5 @@
 import './css/style.css';
-import setImages from '../modules/logo';
+import setImages from './others/logo'
 import { Task } from './models/tasks';
 import { Project } from './models/projects';
 import { linkTasksToProjects } from './controllers/general';
