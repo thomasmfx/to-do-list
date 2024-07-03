@@ -8,7 +8,6 @@ const optionsToCreate = document.querySelector('#options-to-create');
 const createTaskBtn = document.querySelector('#create-task');
 const createProjBtn = document.querySelector('#create-project');
 
-
 buttonToCreate.addEventListener('click', () => {
     unhide(baseModal, optionsToCreate, createTaskBtn, createProjBtn)
     closeModalBheavior(baseModal);
@@ -39,6 +38,7 @@ function closeModalBheavior(modal) {
     const taskForm = document.querySelector('#task-form');
     const projForm = document.querySelector('#project-form');
     const editProjForm = document.querySelector('#edit-project-form');
+    const editTaskForm = document.querySelector('#edit-task-form');
     window.onclick = function(event) {
         if (event.target === modal) {
             hide(optionsToCreate,
@@ -47,7 +47,8 @@ function closeModalBheavior(modal) {
                  modal,
                  taskForm,
                  projForm,
-                 editProjForm);
+                 editProjForm,
+                 editTaskForm);
         };
     };
 };

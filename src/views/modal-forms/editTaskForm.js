@@ -21,8 +21,8 @@ function loadEditTaskForm(){
 };
 
 export function displayEditTaskForm(i){
-    loadAvailableProjects()
     indexTaskToEdit = i;
+    loadAvailableProjects()
     unhide(baseModal);
     displayForm(editTaskForm);
     const title = document.querySelector('input#edit-task-title');
@@ -43,7 +43,6 @@ function saveChanges(index){
     const dueDate = document.querySelector('input#edit-due-date').value;
     const priority = document.querySelector('select#edit-task-priority').value;
     const notes = document.querySelector('textarea#edit-task-notes').value;
-    let lastTitle = tasks[index].title;
 
     if(title.value !== ''){
         tasks[index].edit(title.value, project, dueDate, priority, notes);
@@ -83,10 +82,3 @@ function updateIfInFullView(id){
 };
 
 loadEditTaskForm();
-
-
-// Checar/mudar se:
-
-// minView: remove e display
-// fullView: remove e display project na fullview
-// expanded: remove e display expanded

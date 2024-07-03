@@ -43,21 +43,23 @@ function addToProject(task){
 
 function loadAvailableProjects(){
     const availableProjects = document.querySelector('#projects-dropdown');
-    const editFormAvailableProjects = document.querySelector('#edit-projects-dropdown');
-    do {
-        availableProjects.lastChild.remove();
-    } while(availableProjects.lastChild.textContent !== 'None')
-
+    const editTaskFormAvailableProjects = document.querySelector('#edit-projects-dropdown');
+    let options = availableProjects.childNodes;
+    for(const option of options){
+        if(option.value !== '' || option.textContent !== 'None')
+            option.remove();
+    }
     for(let i = 0; i < projects.length; i++){
         availableProjects.appendChild(createOption(projects[i].title));
     };
 
-    do {
-        editFormAvailableProjects.lastChild.remove();
-    } while(editFormAvailableProjects.lastChild.textContent !== 'None')
-
+    let editOptions = editTaskFormAvailableProjects.childNodes;
+    for(const option of editOptions){
+        if(option.value !== '' || option.textContent !== 'None')
+            option.remove();
+    }
     for(let i = 0; i < projects.length; i++){
-        editFormAvailableProjects.appendChild(createOption(projects[i].title));
+        editTaskFormAvailableProjects.appendChild(createOption(projects[i].title));
     };
 };
 
