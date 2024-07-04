@@ -12,10 +12,6 @@
             <div id="logo">
                
             </div>
-            <div id="theme-login">
-                <i id="theme" class="fa-solid fa-moon"></i>
-                <button id="login">Log in</button>
-            </div>
         </header>
         <aside>
             <nav>
@@ -37,8 +33,13 @@
                 <button id="create">
                     <i class="fa-solid fa-plus"></i>
                 </button>
-                
-                <a href="https://github.com/thomasmfx/to-do-list"><i class="fa-brands fa-github"></i></a>
+
+                <div id="nav-bottom">
+                    <button id="toggle-theme">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <a href="https://github.com/thomasmfx/to-do-list"><i class="fa-brands fa-github"></i></a>
+                </div>
             </nav>
         </aside>
         <div id="min-view">
@@ -107,14 +108,14 @@
             </form>
             <!-- EDIT TASK FORM -->
             <form action="" id="edit-task-form" class="hide">
-                <h1>New task</h1>
+                <h1>Edit task</h1>
                 <div>
                     <label for="edit-task-title">Title*</label>
                     <input type="text" name="title" id="edit-task-title" placeholder="Walk the dog" required>
                 </div>
                 <div>
                     <label for="edit-projects-dropdown">Project</label>
-                    <select name="projects" id="edit-projects-dropdown">
+                    <select name="edit-projects" id="edit-projects-dropdown">
                         <option value="">None</option>
                     </select>
                 </div>
