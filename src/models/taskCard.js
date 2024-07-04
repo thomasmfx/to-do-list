@@ -1,6 +1,6 @@
 import { checkDinamically, removeTaskDinamically } from '../controllers/taskActions';
 import create from '../others/domCreator';
-import expandTask from '../views/full-view/expandedTask';
+import expandTask from '../views/full-view/expandTask';
 import { displayEditTaskForm } from '../views/modal-forms/editTaskForm';
 
 export default function newTaskCard(task) {

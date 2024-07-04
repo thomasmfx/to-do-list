@@ -1,4 +1,4 @@
-import { updateIds } from "../controllers/general";
+import storage from "../storage/projectsStorage";
 
 let projects = [];
 
@@ -10,28 +10,7 @@ class Project {
         this.tasks = [],
         this.id = null
 
-        projects.push(this);
-        updateIds(projects);
-    };
-
-    addTask(task){
-        this.tasks.push(task);
-    };
-
-    delete(){
-        projects.splice(this.id, 1);
-        console.log(projects)
-        updateIds(projects)
-    };
-
-    getAllProjects(){
-        return projects;
-    };
-
-    edit(newTitle, newLink, newDescription){
-        newTitle !== '' ? this.title = newTitle : false;
-        this.link = newLink;
-        this.description = newDescription;
+        storage.storeProject(this)
     };
 };
 
