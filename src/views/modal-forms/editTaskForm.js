@@ -51,6 +51,7 @@ function saveChanges(index){
         updateIfInMinView(index);
         updateIfExpanded(index);
         updateIfInFullView(index);
+        updateIfProjectIsExpanded()
         title.classList.remove('invalid');
     } else {
         alert("Can't have two tasks with the same title")
@@ -80,6 +81,16 @@ function updateIfInFullView(id){
     if(fullView !== null){
         clearProjectTasks();
         displayProjectTasks(projectsArr[getCurrentExpanded()]);
+    };
+};
+
+function updateIfProjectIsExpanded(){
+    const expanded = document.querySelector('#full-view').firstElementChild;
+    let projectsArr = projects.getAllProjects();
+    if(expanded !== null){
+        const projectIndex = expanded.firstElementChild.dataset.projIndex;
+        clearProjectTasks();
+        displayProjectTasks(projectsArr[projectIndex]);
     };
 };
 

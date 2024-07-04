@@ -142,7 +142,7 @@ i.fa-moon {
 }
 
 .fa-circle {
-    -webkit-text-stroke: 1px var(--default-gray);
+    -webkit-text-stroke: 1.3px var(--default-gray);
 }
 
 .red,
