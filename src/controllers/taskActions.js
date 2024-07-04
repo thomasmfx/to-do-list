@@ -1,14 +1,14 @@
-import { tasks } from "../models/tasks";
-import { projects } from "../models/projects";
 import { clearDisplayed, clearProjectTasks } from "./general";
 import { displayTasks, displayProjectTasks } from './tasksController'
 import { removeAllExpanded } from "../views/full-view/expandedCommon";
+import tasks from "../storage/tasksStorage";
+import projects from "../storage/projectsStorage";
 
 function checkDinamically(checkbox, index){
     const tasksInMinView = document.querySelector(`[data-index='${index}']`);
     const tasksInProjectExpanded = document.querySelector(`[data-full-index='${index}']`);
     const taskExpanded = document.querySelector(`[data-expanded='${index}']`);
-    tasks[index].changeIsDone();
+    tasks.changeIsDone(index);
 
     // Card exists in:
     // minview AND expanded
@@ -57,8 +57,7 @@ function removeTaskDinamically(index){
     const tasksInProjectExpanded = document.querySelector(`[data-full-index='${index}']`);
     const taskExpanded = document.querySelector(`[data-expanded='${index}']`);
     const projectExpanded = document.querySelector(`[data-proj-index]`);
-    console.log(projectExpanded)
-    tasks[index].delete();
+    tasks.removeTask(index)
 
     if(tasksInMinView !== null){
         clearDisplayed();
@@ -66,7 +65,7 @@ function removeTaskDinamically(index){
     }
     if(tasksInProjectExpanded !== null){
         clearProjectTasks();
-        displayProjectTasks(projects[projectExpanded.dataset.projIndex]);
+        displayProjectTasks(projects.getAllProjects());
     }
     if(taskExpanded !== null){
         removeAllExpanded(true);

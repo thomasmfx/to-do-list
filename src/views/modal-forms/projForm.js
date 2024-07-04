@@ -1,6 +1,7 @@
-import { Project, projects } from "../../models/projects";
+import { Project } from "../../models/projects";
 import { displayForm } from "./displayOptions";
 import { submitProject } from "../../controllers/projectsController";
+import projects from "../../storage/projectsStorage";
 
 const baseModal = document.querySelector('#options-modal');
 const createProjBtn = document.querySelector('#create-project');
@@ -13,9 +14,10 @@ export function loadProjForm(){
     });
 
     submitProjBtn.addEventListener('click', (event) => {
+        let storedProjects = projects.getAllProjects()
         event.preventDefault();
         const title = document.querySelector('input#project-title');
-        let filter = projects.filter(proj => proj.title === title.value);
+        let filter = storedProjects.filter(proj => proj.title === title.value);
         if(!filter[0]){
             submitProject(projForm, baseModal);
             title.classList.remove('invalid');

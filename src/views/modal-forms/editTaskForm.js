@@ -1,11 +1,11 @@
-import { tasks } from "../../models/tasks";
-import { projects } from "../../models/projects";
 import { displayForm, unhide, hide, getCurrentExpanded } from "./displayOptions";
 import { clearDisplayed, clearProjectTasks } from "../../controllers/general";
 import { loadAvailableProjects } from "./taskForm";
 import { displayProjectTasks, displayTasks } from "../../controllers/tasksController";
 import { removeAllExpanded } from "../full-view/expandedCommon";
-import expandTask from "../full-view/expandedTask";
+import expandTask from "../full-view/expandTask";
+import tasks from "../../storage/tasksStorage";
+import projects from "../../storage/projectsStorage";
 
 const baseModal = document.querySelector('#options-modal');
 const editTaskForm = document.querySelector('#edit-task-form');
@@ -21,8 +21,9 @@ function loadEditTaskForm(){
 };
 
 export function displayEditTaskForm(i){
+    const storedTasks = tasks.getAllTasks();
     indexTaskToEdit = i;
-    loadAvailableProjects()
+    loadAvailableProjects();
     unhide(baseModal);
     displayForm(editTaskForm);
     const title = document.querySelector('input#edit-task-title');
@@ -30,11 +31,11 @@ export function displayEditTaskForm(i){
     const dueDate = document.querySelector('input#edit-due-date');
     const priority = document.querySelector('select#edit-task-priority');
     const notes = document.querySelector('textarea#edit-task-notes');
-    title.value = tasks[i].title
-    project.value = tasks[i].project
-    dueDate.value = tasks[i].dueDate
-    priority.value = tasks[i].priority
-    notes.textContent = tasks[i].notes
+    title.value = storedTasks[i].title
+    project.value = storedTasks[i].project
+    dueDate.value = storedTasks[i].dueDate
+    priority.value = storedTasks[i].priority
+    notes.textContent = storedTasks[i].notes
 };
 
 function saveChanges(index){
@@ -45,7 +46,7 @@ function saveChanges(index){
     const notes = document.querySelector('textarea#edit-task-notes').value;
 
     if(title.value !== ''){
-        tasks[index].edit(title.value, project, dueDate, priority, notes);
+        tasks.editTask(index, title.value, project, dueDate, priority, notes);
         hide(baseModal, editTaskForm);
         updateIfInMinView(index);
         updateIfExpanded(index);
@@ -75,9 +76,10 @@ function updateIfInMinView(id){
 
 function updateIfInFullView(id){
     const fullView = document.querySelector(`[data-full-index='${id}']`);
+    let projectsArr = projects.getAllProjects()
     if(fullView !== null){
-        clearProjectTasks()
-        displayProjectTasks(projects[getCurrentExpanded()]);
+        clearProjectTasks();
+        displayProjectTasks(projectsArr[getCurrentExpanded()]);
     };
 };
 
