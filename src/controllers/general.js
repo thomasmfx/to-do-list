@@ -1,5 +1,3 @@
-import { projects } from "../models/projects";
-import { tasks } from '../models/tasks';
 import create from "../others/domCreator";
 
 const minView = document.querySelector('#min-view');
@@ -7,16 +5,6 @@ const minView = document.querySelector('#min-view');
 function updateIds(arr){
     for(let i = 0; i < arr.length; i++){
         arr[i].id = i;
-    };
-};
-
-function linkTasksToProjects(){
-    for(const task of tasks){
-        for(const proj of projects){
-            if(task.project === proj.title){
-                proj.addTask(task);
-            };
-        };
     };
 };
 
@@ -40,4 +28,4 @@ function clearProjectTasks(){
     fullView.lastElementChild.remove();
 };
 
-export { updateIds, linkTasksToProjects, clearDisplayed, changeLabelto, clearProjectTasks }
+export { updateIds, clearDisplayed, changeLabelto, clearProjectTasks }
