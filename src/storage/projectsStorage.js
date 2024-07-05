@@ -3,6 +3,13 @@ let array = []
 const projects = (function(){
     if(localStorage.getItem('projects') === null){
         localStorage.setItem('projects', JSON.stringify(array));
+        storeProject({
+            "title": "Demo project",
+            "link": "projectlink.com",
+            "description": "Be careful! Excluding a project will automatically exclude all tasks attached to it.",
+            "tasks": [],
+            "id": 0
+        });
     }
     
     function storeProject(obj){

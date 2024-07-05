@@ -85,10 +85,10 @@ function updateIfInFullView(id){
 };
 
 function updateIfProjectIsExpanded(){
-    const expanded = document.querySelector('#full-view').firstElementChild;
+    const expanded = document.querySelector('#full-view');
     let projectsArr = projects.getAllProjects();
-    if(expanded !== null){
-        const projectIndex = expanded.firstElementChild.dataset.projIndex;
+    if(expanded.firstElementChild.firstElementChild !== null){
+        const projectIndex = expanded.firstElementChild.firstElementChild.dataset.projIndex;
         clearProjectTasks();
         displayProjectTasks(projectsArr[projectIndex]);
     };
