@@ -132,7 +132,7 @@ button#toggle-theme {
 }
 
 i.fa-github,
-i.fa-moon {
+i#theme-icon {
     font-size: 1.8rem;
     background: none;
     border: none;

@@ -1,10 +1,15 @@
 const toggleBtn = document.querySelector('#toggle-theme');
+const themeIcon = document.querySelector(('#theme-icon'));
 
 toggleBtn.addEventListener('click', () => {
     if(localStorage.getItem('theme') === 'dark'){
         applyTheme.light();
+        themeIcon.classList.remove('fa-sun')
+        themeIcon.classList.add('fa-moon')
     } else{
         applyTheme.dark();
+        themeIcon.classList.remove('fa-moon')
+        themeIcon.classList.add('fa-sun')
     };
 });
 
