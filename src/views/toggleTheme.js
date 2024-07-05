@@ -1,5 +1,5 @@
 const toggleBtn = document.querySelector('#toggle-theme');
-const themeIcon = document.querySelector(('#theme-icon'));
+const themeIcon = document.querySelector('#theme-icon');
 
 toggleBtn.addEventListener('click', () => {
     if(localStorage.getItem('theme') === 'dark'){
@@ -17,12 +17,15 @@ const applyTheme = (function(){
     let root = document.querySelector(':root');
     
     function dark(){
-        root.style.setProperty('--background', '#343a40');
-        root.style.setProperty('--black', '#ced4da');
-        root.style.setProperty('--dark-gray', '#adb5bd');
-        root.style.setProperty('--default-gray', '#6c757d');
-        root.style.setProperty('--light-gray', '#495057');
-        root.style.setProperty('--borders-gray', '#6c757d');
+        root.style.setProperty('--background', '#212529');
+        root.style.setProperty('--black', '#adb5bd');
+        root.style.setProperty('--dark-gray', '#768088');
+        root.style.setProperty('--default-gray', '#495057');
+        root.style.setProperty('--light-gray', '#343a40');
+        root.style.setProperty('--borders-gray', '#343a40');
+        root.style.setProperty('--blue', '#3772ff');
+        root.style.setProperty('--yellow', '#ff9f1c');
+        root.style.setProperty('--red', '#e71d36');
         localStorage.setItem('theme', 'dark');
     };
     
@@ -33,6 +36,9 @@ const applyTheme = (function(){
         root.style.setProperty('--default-gray', '#adb5bdff');
         root.style.setProperty('--light-gray', '#ebebeb');
         root.style.setProperty('--borders-gray', '#D3D3D3');
+        root.style.setProperty('--blue', '#64b5f6ff');
+        root.style.setProperty('--yellow', '#f6c364');
+        root.style.setProperty('--red', '#ff5a5a');
         localStorage.setItem('theme', 'light');
     };
 

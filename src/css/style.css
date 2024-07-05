@@ -235,7 +235,7 @@ main > #min-view {
     margin-bottom: 1px;
     accent-color: var(--logo-blue);
     transform: scale(1.4);
-    opacity: 60%;
+    opacity: 50%;
 }
 
 .checkbox:hover {

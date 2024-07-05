@@ -15,7 +15,7 @@ const tasks = (function(){
             "project": "Demo project",
             "dueDate": `${today}`,
             "priority": "low",
-            "notes": "The '+' button on sidebar is all you need to create tasks and projects.\n\nTake a time to play with the sidebar icons and discover what you can do!\n\nYou can toggle between dark/light theme by clicking the sun/moon icon in the bottom of the sidebar.",
+            "notes": "The '+' button on sidebar is all you need to create tasks and projects.\n\nTake a time to play with the sidebar icons and discover what you can do!\n\nYou can toggle between dark/light theme by clicking the sun/moon icon right at the bottom of the sidebar.",
             "isDone": false,
             "id": 0
         });
